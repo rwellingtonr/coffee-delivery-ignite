@@ -1,4 +1,4 @@
-import { Layout } from "~/layout/Layout"
+import { Layout } from "~/layout"
 import { createBrowserRouter } from "react-router-dom"
 import { ErrorBoundary } from "~/pages/ErrorBoundary"
 import { Home } from "~/pages/Home"
