@@ -1,24 +1,29 @@
-import { Counter } from "~/components/Counter"
-import { ShippingCart } from "~/components/ShippingCart"
-import { coffeeElements } from "./elements"
-import {
-	CardContainer,
-	CardGridContainer,
-	MainContainer,
-	CardFooter,
-	TotalPriceWrapper,
-	CounterShippingCart,
-} from "./styles"
+import * as Styles from "./styles"
+import { coffeeElements } from "~/repository/coffee"
+import { Buy } from "../Buy"
+import { useShoppingCart } from "~/context/ShoppingCart"
 
 export function CoffeeList() {
+	const { handleBuyCoffee } = useShoppingCart()
+
+	const handleAddToShippingCart = (id: number, quantity: number) => {
+		const coffee = coffeeElements.find((coffee) => coffee.id === id)
+		if (coffee) {
+			handleBuyCoffee({
+				...coffee,
+				quantity,
+			})
+		}
+	}
+
 	return (
 		<>
-			<MainContainer>
+			<Styles.MainContainer>
 				<h2>Nosso Café</h2>
 
-				<CardGridContainer>
+				<Styles.CardGridContainer>
 					{coffeeElements.map((coffee) => (
-						<CardContainer key={coffee.id}>
+						<Styles.CardContainer key={coffee.id}>
 							<img src={coffee.coffeeImage} alt="..." />
 							<div className="coffeeTypes">
 								{coffee.type.map((type) => (
@@ -28,21 +33,11 @@ export function CoffeeList() {
 							<h5 className="title">{coffee.title}</h5>
 							<p className="description">{coffee.description}</p>
 
-							<CardFooter>
-								<TotalPriceWrapper>
-									<span>R$</span>
-									<h5>9,90</h5>
-								</TotalPriceWrapper>
-
-								<CounterShippingCart>
-									<Counter />
-									<ShippingCart variant="secondary" />
-								</CounterShippingCart>
-							</CardFooter>
-						</CardContainer>
+							<Buy id={coffee.id} handleBought={handleAddToShippingCart} price={coffee.price} />
+						</Styles.CardContainer>
 					))}
-				</CardGridContainer>
-			</MainContainer>
+				</Styles.CardGridContainer>
+			</Styles.MainContainer>
 		</>
 	)
 }

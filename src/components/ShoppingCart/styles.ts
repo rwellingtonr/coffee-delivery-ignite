@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const shippingCartVariant = {
+const shoppingCartVariant = {
 	primary: {
 		background: "yellow-light",
 		color: "yellow-dark",
@@ -14,24 +14,25 @@ const shippingCartVariant = {
 } as const
 
 type VariantProps = {
-	variant: keyof typeof shippingCartVariant
+	variant: keyof typeof shoppingCartVariant
 }
 
-export const ShippingCartWrapper = styled.div<VariantProps>`
+export const ShoppingCartWrapper = styled.button<VariantProps>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: ${(props) => props.theme.colors[shippingCartVariant[props.variant].background]};
+	background: ${(props) => props.theme.colors[shoppingCartVariant[props.variant].background]};
 	border-radius: 6px;
 	padding: 0.5rem;
 	cursor: pointer;
 	transition: all 0.1s ease-in;
+	border: none;
 
 	&:hover {
-		background: ${(props) => props.theme.colors[shippingCartVariant[props.variant].bgHover]};
+		background: ${(props) => props.theme.colors[shoppingCartVariant[props.variant].bgHover]};
 	}
 
 	svg {
-		color: ${(props) => props.theme.colors[shippingCartVariant[props.variant].color]};
+		color: ${(props) => props.theme.colors[shoppingCartVariant[props.variant].color]};
 	}
 `

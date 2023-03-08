@@ -12,14 +12,7 @@ import irish from "~/assets/coffee/irish.svg"
 import latte from "~/assets/coffee/latte.svg"
 import macchiato from "~/assets/coffee/macchiato.svg"
 import mochaccino from "~/assets/coffee/mochaccino.svg"
-
-export type CoffeeElements = {
-	id: number
-	type: string[]
-	coffeeImage: string
-	title: string
-	description: string
-}
+import type { CoffeeElements } from "~/interface/coffee"
 
 export const coffeeElements: CoffeeElements[] = [
 	{
@@ -28,6 +21,7 @@ export const coffeeElements: CoffeeElements[] = [
 		coffeeImage: express,
 		title: "Expresso Tradicional",
 		description: "O tradicional café feito com água quente e grãos moídos",
+		price: "9,90",
 	},
 	{
 		id: 2,
@@ -35,12 +29,14 @@ export const coffeeElements: CoffeeElements[] = [
 		type: ["tradicional"],
 		title: "Expresso Americano",
 		description: "Expresso diluído, menos intenso que o tradicional",
+		price: "9,90",
 	},
 	{
 		id: 3,
 		coffeeImage: creamExpress,
 		type: ["tradicional"],
 		description: "Café expresso tradicional com espuma cremosa",
+		price: "9,90",
 		title: "Expresso Cremoso",
 	},
 	{
@@ -48,6 +44,7 @@ export const coffeeElements: CoffeeElements[] = [
 		type: ["tradicional", "gelado"],
 		coffeeImage: coldCoffee,
 		description: "Bebida preparada com café expresso e cubos de gelo",
+		price: "9,90",
 		title: "Expresso Gelado",
 	},
 	{
@@ -55,6 +52,7 @@ export const coffeeElements: CoffeeElements[] = [
 		coffeeImage: caffeeLatte,
 		type: ["tradicional", "com leite"],
 		description: "Meio a meio de expresso tradicional com leite vaporizado",
+		price: "9,90",
 		title: "Café com Leite",
 	},
 	{
@@ -62,12 +60,14 @@ export const coffeeElements: CoffeeElements[] = [
 		type: ["tradicional", "com leite"],
 		coffeeImage: latte,
 		description: "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+		price: "9,90",
 		title: "Latte",
 	},
 	{
 		id: 7,
 		coffeeImage: capuccino,
 		description: "Bebida com canela feita de doses iguais de café, leite e espuma",
+		price: "9,90",
 		title: "Capuccino",
 		type: ["tradicional", "com leite"],
 	},
@@ -75,6 +75,7 @@ export const coffeeElements: CoffeeElements[] = [
 		id: 8,
 		coffeeImage: macchiato,
 		description: "Café expresso misturado com um pouco de leite quente e espuma",
+		price: "9,90",
 		title: "Macchiato",
 		type: ["tradicional", "com leite"],
 	},
@@ -82,6 +83,7 @@ export const coffeeElements: CoffeeElements[] = [
 		id: 9,
 		coffeeImage: mochaccino,
 		description: "Café expresso com calda de chocolate, pouco leite e espuma",
+		price: "9,90",
 		title: "Mocaccino",
 		type: ["tradicional", "com leite"],
 	},
@@ -89,6 +91,7 @@ export const coffeeElements: CoffeeElements[] = [
 		id: 10,
 		coffeeImage: hotChocolate,
 		description: "Bebida feita com chocolate dissolvido no leite quente e café",
+		price: "9,90",
 		title: "Chocolate Quente",
 		type: ["especial", "com leite"],
 	},
@@ -97,6 +100,7 @@ export const coffeeElements: CoffeeElements[] = [
 		coffeeImage: cuba,
 		description: "Drink gelado de café expresso com rum, creme de leite e hortelã",
 		type: ["especial"],
+		price: "9,90",
 		title: "Cubano",
 	},
 	{
@@ -104,11 +108,13 @@ export const coffeeElements: CoffeeElements[] = [
 		coffeeImage: hawaiian,
 		description: "Bebida adocicada preparada com café e leite de coco",
 		title: "Havaiano",
+		price: "9,90",
 		type: ["especial"],
 	},
 	{
 		id: 13,
 		coffeeImage: arabian,
+		price: "9,90",
 		type: ["especial"],
 		description: "Bebida preparada com grãos de café árabe e especiarias",
 		title: "Árabe",
@@ -118,6 +124,7 @@ export const coffeeElements: CoffeeElements[] = [
 		coffeeImage: irish,
 		description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
 		title: "Irlandês",
+		price: "9,90",
 		type: ["especial", "alcoólico"],
 	},
 ]
