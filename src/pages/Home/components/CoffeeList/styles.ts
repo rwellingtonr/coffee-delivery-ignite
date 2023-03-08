@@ -5,6 +5,7 @@ export const MainContainer = styled.main`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-top: 2rem;
 
 	h2 {
 		max-width: 70rem;
@@ -79,6 +80,7 @@ export const CardContainer = styled.article`
 		margin-top: 0.5rem;
 		font-size: ${(props) => props.theme.sizes["sm"]};
 		text-align: center;
+		width: 13.5rem;
 		color: ${(props) => props.theme.colors["base-label"]};
 	}
 `

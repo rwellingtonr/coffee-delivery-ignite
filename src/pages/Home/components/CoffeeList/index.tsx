@@ -1,3 +1,4 @@
+import { Counter } from "~/components/Counter"
 import { ShippingCart } from "~/components/ShippingCart"
 import { coffeeElements } from "./elements"
 import {
@@ -34,7 +35,7 @@ export function CoffeeList() {
 								</TotalPriceWrapper>
 
 								<CounterShippingCart>
-									<p>Counter</p>
+									<Counter />
 									<ShippingCart variant="secondary" />
 								</CounterShippingCart>
 							</CardFooter>
