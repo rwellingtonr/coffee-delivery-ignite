@@ -22,7 +22,8 @@ export const BannerContainer = styled.section`
 		gap: 4.125rem;
 	}
 	.information {
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(2, auto);
 		gap: 1.25rem 2.5rem;
 		flex-wrap: wrap;
 	}

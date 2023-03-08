@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom"
 import { ErrorBoundary } from "~/pages/ErrorBoundary"
 import { Home } from "~/pages/Home"
 import { Checkout } from "~/pages/Checkout"
+import { Delivery } from "~/pages/Delivery"
 
 export const router = createBrowserRouter([
 	{
@@ -15,6 +16,11 @@ export const router = createBrowserRouter([
 				element: <Checkout />,
 				errorElement: <ErrorBoundary />,
 				path: "checkout",
+			},
+			{
+				element: <Delivery />,
+				errorElement: <ErrorBoundary />,
+				path: "delivery",
 			},
 		],
 	},
