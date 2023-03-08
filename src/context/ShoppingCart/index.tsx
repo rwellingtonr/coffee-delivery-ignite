@@ -26,6 +26,8 @@ export function ShippingCartProvider({ children }: ShoppingCartProviderProps) {
 	}, [shoppingCart])
 
 	const handleBuyCoffee = (coffee: CoffeeState) => {
+		console.log("Added", coffee)
+
 		dispatch(addToShoppingCart(coffee))
 	}
 
@@ -38,7 +40,7 @@ export function ShippingCartProvider({ children }: ShoppingCartProviderProps) {
 
 	return (
 		<ShoppingCartContext.Provider
-			value={{ handleBuyCoffee, handleCleanShoppingCart, handleRemoveFromCart }}
+			value={{ shoppingCart, handleBuyCoffee, handleCleanShoppingCart, handleRemoveFromCart }}
 		>
 			{children}
 		</ShoppingCartContext.Provider>

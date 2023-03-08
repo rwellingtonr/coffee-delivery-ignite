@@ -37,3 +37,23 @@ export const LocationWrapper = styled.div`
 		color: ${(props) => props.theme.colors["purple-dark"]};
 	}
 `
+export const ShoppingIconWithNotification = styled.div`
+	position: relative;
+
+	span {
+		position: absolute;
+		right: -8.35px;
+		top: -8px;
+		font-size: ${(props) => props.theme.sizes["sm"]};
+		color: ${(props) => props.theme.colors.white};
+		font-weight: 700;
+		text-align: center;
+		border-radius: 50%;
+		background: ${(props) => props.theme.colors["yellow-dark"]};
+		width: 20px;
+		height: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+`

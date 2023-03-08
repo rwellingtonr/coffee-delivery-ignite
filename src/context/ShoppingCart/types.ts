@@ -16,4 +16,5 @@ export type ShoppingCartContextProps = {
 	handleBuyCoffee: (coffee: CoffeeState) => void
 	handleCleanShoppingCart: () => void
 	handleRemoveFromCart: (id: number) => void
+	shoppingCart: ShoppingReducerState
 }
