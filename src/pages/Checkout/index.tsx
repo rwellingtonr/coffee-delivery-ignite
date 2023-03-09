@@ -1,19 +1,20 @@
 import { AddressForm } from "./components/AddressForm"
 import { CoffeeCard } from "./components/CoffeeCard"
 import { PaymentMethod } from "./components/PaymentMethod"
+import * as Styled from "./styles"
 
 export function Checkout() {
 	return (
-		<main>
-			<div>
+		<Styled.MainCheckoutContainer>
+			<Styled.CheckoutInformationContainer>
 				<h5>Complete seu pedido</h5>
 				<AddressForm />
 				<PaymentMethod />
-			</div>
+			</Styled.CheckoutInformationContainer>
 			<div>
 				<h5>Cafés selecionados</h5>
 				<CoffeeCard />
 			</div>
-		</main>
+		</Styled.MainCheckoutContainer>
 	)
 }

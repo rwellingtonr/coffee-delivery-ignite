@@ -33,7 +33,6 @@ export const CardContainer = styled.article`
 	width: 16rem;
 	background: ${(props) => props.theme.colors["base-card"]};
 	border-radius: 6px 36px;
-	/* position: relative; */
 
 	display: flex;
 	flex-direction: column;
@@ -41,7 +40,6 @@ export const CardContainer = styled.article`
 	justify-content: center;
 
 	img {
-		/* position: absolute; */
 		margin-top: -1.25rem;
 		width: 7.5rem;
 		height: 7.5rem;

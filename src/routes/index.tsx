@@ -11,7 +11,11 @@ export const router = createBrowserRouter([
 		element: <Layout />,
 		errorElement: <ErrorBoundary />,
 		children: [
-			{ index: true, element: <Home />, errorElement: <ErrorBoundary /> },
+			{
+				index: true,
+				element: <Home />,
+				errorElement: <ErrorBoundary />,
+			},
 			{
 				element: <Checkout />,
 				errorElement: <ErrorBoundary />,

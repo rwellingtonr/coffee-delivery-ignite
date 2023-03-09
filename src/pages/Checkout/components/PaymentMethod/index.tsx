@@ -1,8 +1,9 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from "phosphor-react"
+import * as Styled from "./styles"
 
 export function PaymentMethod() {
 	return (
-		<section>
+		<Styled.PaymentContainer>
 			<div>
 				<CurrencyDollar weight="regular" size={22} />
 				<div>
@@ -11,19 +12,19 @@ export function PaymentMethod() {
 				</div>
 			</div>
 			<div>
-				<button>
+				<button type="button">
 					<CreditCard size={16} />
 					<p>Cartão de crédito</p>
 				</button>
-				<button>
+				<button type="button">
 					<Bank size={16} />
 					<p>cartão de débito</p>
 				</button>
-				<button>
+				<button type="button">
 					<Money size={16} />
 					<p>dinheiro</p>
 				</button>
 			</div>
-		</section>
+		</Styled.PaymentContainer>
 	)
 }

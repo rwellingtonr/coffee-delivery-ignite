@@ -7,6 +7,7 @@ export const CounterContainer = styled.div`
 	gap: 0.25rem;
 	padding: 0.5rem;
 	border-radius: 6px;
+	width: 4.5rem;
 	background: ${(props) => props.theme.colors["base-button"]};
 
 	svg {

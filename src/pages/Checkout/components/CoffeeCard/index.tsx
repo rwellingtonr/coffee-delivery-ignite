@@ -19,7 +19,7 @@ export function CoffeeCard() {
 					<p>R$ xx,xx</p>
 				</div>
 			</div>
-			<button type="button">Confirmar pedido</button>
+			<button type="submit">Confirmar pedido</button>
 		</section>
 	)
 }

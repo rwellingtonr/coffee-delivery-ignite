@@ -1,8 +1,15 @@
 import { InputHTMLAttributes } from "react"
-import { InputContainer } from "./styles"
+import { InputContainer, InputTextContainer } from "./styles"
 
-type InputTextProps = InputHTMLAttributes<HTMLInputElement>
+interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
+	isOptional: boolean
+}
 
-export function InputText(props: InputTextProps) {
-	return <InputContainer {...props} />
+export function InputText({ isOptional, ...props }: InputTextProps) {
+	return (
+		<InputContainer>
+			<InputTextContainer {...props} />
+			{isOptional ? <p className="optional">opcional</p> : <></>}
+		</InputContainer>
+	)
 }
