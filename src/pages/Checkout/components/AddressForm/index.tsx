@@ -1,15 +1,12 @@
 import { MapPin } from "phosphor-react"
-import { useForm } from "react-hook-form"
+import { useFormContext } from "react-hook-form"
 import { InputText } from "~/components/InputText"
-import { AddressSchema, AddressSchemaType } from "./validation"
-import { zodResolver } from "@hookform/resolvers/zod"
 import * as Styled from "./styles"
 import { useCepAddress } from "~/hook/useCepAddress"
+import type { AddressSchemaType } from "../../validation"
 
 export function AddressForm() {
-	const { register, watch } = useForm<AddressSchemaType>({
-		resolver: zodResolver(AddressSchema),
-	})
+	const { register, watch } = useFormContext<AddressSchemaType>()
 
 	const cep = watch("cep")
 	const { address, isCepFilled, isLoading } = useCepAddress(cep)
@@ -24,7 +21,7 @@ export function AddressForm() {
 						<p className="address-description">Informe o endereço onde deseja receber seu pedido</p>
 					</div>
 				</Styled.CheckoutHeading>
-				<Styled.FormContainer>
+				<Styled.InputsContainer>
 					<div>
 						<Styled.InputMaskWrapper
 							mask={"99999-999"}
@@ -80,7 +77,7 @@ export function AddressForm() {
 							defaultValue={address?.state}
 						/>
 					</div>
-				</Styled.FormContainer>
+				</Styled.InputsContainer>
 			</Styled.ContentWrapper>
 		</Styled.CheckoutContainer>
 	)

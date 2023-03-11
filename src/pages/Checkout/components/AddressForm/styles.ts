@@ -7,16 +7,14 @@ export const CheckoutContainer = styled.section`
 	align-items: flex-start;
 	background: ${(props) => props.theme.colors["base-card"]};
 	border-radius: 6px;
-
-	width: 40rem;
+	padding: 2.5rem;
 `
 export const ContentWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 2.5rem;
-	gap: 32px;
-	width: 100%;
+	gap: 2rem;
+	width: 35rem;
 `
 
 export const CheckoutHeading = styled.div`
@@ -45,7 +43,7 @@ export const CheckoutHeading = styled.div`
 		}
 	}
 `
-export const FormContainer = styled.form`
+export const InputsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;

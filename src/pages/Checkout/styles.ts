@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const MainCheckoutContainer = styled.main`
+export const FormCheckoutContainer = styled.form`
 	display: flex;
 	justify-content: center;
 
