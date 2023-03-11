@@ -7,9 +7,15 @@ export const FormCheckoutContainer = styled.form`
 	gap: 2rem;
 `
 
-export const CheckoutInformationContainer = styled.div`
+export const CheckoutContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 0.75rem;
+
+	& > h5 {
+		color: ${(props) => props.theme.colors["base-subtitle"]};
+		font-weight: 700;
+		font-size: ${(props) => props.theme.sizes["lg"]};
+	}
 `

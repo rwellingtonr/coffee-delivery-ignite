@@ -12,6 +12,7 @@ export const CounterContainer = styled.div`
 
 	svg {
 		color: ${(props) => props.theme.colors["purple"]};
+		cursor: pointer;
 
 		&:hover {
 			color: ${(props) => props.theme.colors["purple-dark"]};

@@ -30,7 +30,7 @@ export const PaymentButtonWrapper = styled.button`
 		color: ${(props) => props.theme.colors["base-subtitle"]};
 	}
 
-	&:active {
+	&:focus {
 		background-color: ${(props) => props.theme.colors["purple-light"]};
 		border: 1px solid ${(props) => props.theme.colors.purple};
 	}

@@ -25,15 +25,15 @@ export function Checkout() {
 	return (
 		<Styled.FormCheckoutContainer>
 			<FormProvider {...hookFormProps}>
-				<Styled.CheckoutInformationContainer>
+				<Styled.CheckoutContainer>
 					<h5>Complete seu pedido</h5>
 					<AddressForm />
 					<PaymentMethod />
-				</Styled.CheckoutInformationContainer>
-				<div>
+				</Styled.CheckoutContainer>
+				<Styled.CheckoutContainer>
 					<h5>Cafés selecionados</h5>
 					<CoffeeCard />
-				</div>
+				</Styled.CheckoutContainer>
 			</FormProvider>
 		</Styled.FormCheckoutContainer>
 	)
