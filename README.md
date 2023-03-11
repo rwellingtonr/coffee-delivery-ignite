@@ -16,9 +16,11 @@ gif...
 
 ## Tecnologias
 
+- Immer
 - React
 - React-router-dom@6
 - React-hook-forms
+- Styled-components
 - TypeScript
 - Vite
 - Zod
