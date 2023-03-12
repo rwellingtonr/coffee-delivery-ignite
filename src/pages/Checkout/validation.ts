@@ -1,8 +1,8 @@
 import { z } from "zod"
 
 export const AddressSchema = z.object({
-	cep: z.string().max(8),
-	address: z.string().min(5),
+	cep: z.string().min(8),
+	address: z.string().min(3),
 	number: z.string().min(1),
 	additional: z.optional(z.string()),
 	neighborhood: z.string().min(3),

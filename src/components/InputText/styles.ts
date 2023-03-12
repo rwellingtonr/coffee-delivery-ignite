@@ -1,6 +1,10 @@
 import styled from "styled-components"
 
-export const InputContainer = styled.div`
+type ContainerProps = {
+	error: boolean
+}
+
+export const InputContainer = styled.div<ContainerProps>`
 	display: flex;
 	align-items: center;
 	padding: ${(props) => props.theme.sizes["xsm"]};
@@ -8,7 +12,7 @@ export const InputContainer = styled.div`
 	width: 100%;
 
 	background: ${(props) => props.theme.colors["base-input"]};
-	border: 1px solid ${(props) => props.theme.colors["base-button"]};
+	border: 1px solid ${(props) => (props.error ? "#ff6a5a" : props.theme.colors["base-button"])};
 	border-radius: 4px;
 	outline: transparent;
 

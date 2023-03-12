@@ -1,9 +1,19 @@
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react"
+import { useLocation } from "react-router-dom"
+import type { Order } from "~/interface/order"
+import { paymentAccepted } from "~/repository/payments"
+import { brazilianStates } from "~/repository/states"
 
 import * as Styled from "./styles"
 
 export function DeliveryInformation() {
-	const address = "Entrega em Rua João Daniel Martinelli, 102"
+	const location = useLocation()
+	const orderProps = location.state as Order
+
+	const { address, number, city, state } = orderProps.address
+
+	const payment = paymentAccepted.find((payment) => payment.value === orderProps.payment.method)
+
 	return (
 		<Styled.DeliveryInformationContainer>
 			<Styled.DeliveryContentWrapper>
@@ -13,9 +23,9 @@ export function DeliveryInformation() {
 					</Styled.IconWrapper>
 					<Styled.DeliveryInformationWrapper>
 						<p>
-							Entrega em <span>{address}</span>
+							Entrega em <span>{`${address}, ${number}`}</span>
 						</p>
-						<p>cidade, ESTADO, UF</p>
+						<p>{`${city}, ${brazilianStates[state]?.toUpperCase()}, ${state}`}</p>
 					</Styled.DeliveryInformationWrapper>
 				</div>
 				<div className="delivery-information">
@@ -36,7 +46,7 @@ export function DeliveryInformation() {
 					<Styled.DeliveryInformationWrapper>
 						<p>Pagamento na entrega</p>
 						<p>
-							<span>Cartão de Crédito</span>
+							<span className="payment">{payment?.label}</span>
 						</p>
 					</Styled.DeliveryInformationWrapper>
 				</div>

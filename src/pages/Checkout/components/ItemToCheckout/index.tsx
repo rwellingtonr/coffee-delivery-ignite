@@ -1,12 +1,10 @@
 import { Trash } from "phosphor-react"
 import { Fragment } from "react"
-import arabian from "~/assets/coffee/arabian.svg"
 import { Counter } from "~/components/Counter"
 import { useShoppingCart } from "~/context/ShoppingCart"
 import { CoffeeSelectedContainer, Divider, RemoverButtonContainer } from "./styles"
 
 export function ItemToCheckout() {
-	const first = (num: number) => {}
 	const { handleRemoveFromCart, shoppingCart } = useShoppingCart()
 
 	return (
@@ -19,7 +17,7 @@ export function ItemToCheckout() {
 							<div className="details">
 								<p>{coffee.title}</p>
 								<div className="actions">
-									<Counter currentValue={1} handleCounter={first} />
+									<Counter id={coffee.id} />
 									<RemoverButtonContainer
 										type="button"
 										onClick={() => handleRemoveFromCart(coffee.id)}

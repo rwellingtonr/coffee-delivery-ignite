@@ -6,12 +6,12 @@ import { useShoppingCart } from "~/context/ShoppingCart"
 export function CoffeeList() {
 	const { handleBuyCoffee } = useShoppingCart()
 
-	const handleAddToShippingCart = (id: number, quantity: number) => {
+	const handleAddToShippingCart = (id: number) => {
 		const coffee = coffeeElements.find((coffee) => coffee.id === id)
 		if (coffee) {
 			handleBuyCoffee({
 				...coffee,
-				quantity,
+				quantity: 1,
 			})
 		}
 	}

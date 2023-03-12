@@ -1,22 +1,16 @@
+import { useFormContext } from "react-hook-form"
 import { useShoppingCart } from "~/context/ShoppingCart"
+import type { AddressSchemaType } from "../../validation"
 import { ItemToCheckout } from "../ItemToCheckout"
 import * as Styled from "./styles"
 
 export function CoffeeCard() {
-	const { shoppingCart } = useShoppingCart()
+	const { itemsPrice, totalCost, paymentMethod, deliveryCost } = useShoppingCart()
 
-	const priceOfAllItens = shoppingCart.coffee.reduce((acc, coffee) => {
-		const priceToNumber = +coffee.price.replace(",", ".")
-		return acc + priceToNumber
-	}, 0)
+	const { watch } = useFormContext<AddressSchemaType>()
+	const cep = watch("cep")
 
-	const shippingPrice = priceOfAllItens * shoppingCart.coffee?.length * 0.035
-
-	const totalPrice = shippingPrice + priceOfAllItens
-
-	const priceOfAllItensString = priceOfAllItens.toString().replace(".", ",")
-	const shippingPriceString = shippingPrice.toString().replace(".", ",")
-	const totalPriceString = totalPrice.toString().replace(".", ",")
+	const isSubmitButtonEnabled = !!paymentMethod && !!cep
 
 	return (
 		<Styled.CoffeeCardContainer>
@@ -25,18 +19,20 @@ export function CoffeeCard() {
 			<Styled.TotalPriceContainer>
 				<dt>
 					<p className="order-information">Total de itens</p>
-					<p className="order-value">{`R$ ${priceOfAllItensString}`}</p>
+					<p className="order-value">{`R$ ${itemsPrice}`}</p>
 				</dt>
 				<dt>
 					<p className="order-information">Entrega</p>
-					<p className="order-value">{`R$ ${shippingPriceString}`}</p>
+					<p className="order-value">{`R$ ${deliveryCost}`}</p>
 				</dt>
 				<dt>
 					<span>Total</span>
-					<span>{`R$ ${totalPriceString}`}</span>
+					<span>{`R$ ${totalCost}`}</span>
 				</dt>
 			</Styled.TotalPriceContainer>
-			<Styled.ConfirmOrderButton type="submit">Confirmar pedido</Styled.ConfirmOrderButton>
+			<Styled.ConfirmOrderButton type="submit" disabled={!isSubmitButtonEnabled}>
+				Confirmar pedido
+			</Styled.ConfirmOrderButton>
 		</Styled.CoffeeCardContainer>
 	)
 }
