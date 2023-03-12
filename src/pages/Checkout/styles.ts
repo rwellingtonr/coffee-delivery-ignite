@@ -5,6 +5,11 @@ export const FormCheckoutContainer = styled.form`
 	justify-content: center;
 
 	gap: 2rem;
+
+	@media (max-width: 1120px) {
+		flex-direction: column;
+		align-items: center;
+	}
 `
 
 export const CheckoutContainer = styled.div`

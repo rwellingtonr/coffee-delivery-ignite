@@ -11,6 +11,10 @@ export const HeaderContainer = styled.header`
 		height: 2.5rem;
 		width: auto;
 	}
+
+	@media (max-width: 1120px) {
+		padding: 2rem;
+	}
 `
 
 export const ActionsWrapper = styled.div`
@@ -35,6 +39,12 @@ export const LocationWrapper = styled.div`
 
 	p {
 		color: ${(props) => props.theme.colors["purple-dark"]};
+	}
+
+	@media (max-width: 1120px) {
+		p {
+			font-size: ${(props) => props.theme.sizes["sm"]};
+		}
 	}
 `
 export const ShoppingIconWithNotification = styled.div`
