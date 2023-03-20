@@ -1,8 +1,8 @@
 # Coffee Delivery
 
-## 🚧 🚧 Em Andamento 🚧 🚧
-
 [![GitHub](https://img.shields.io/github/license/rwellingtonr/coffee-delivery-ignite?color=blue)](https://github.com/rwellingtonr/coffee-delivery-ignite/blob/master/LICENSE.md) ![GitHub last commit](https://img.shields.io/github/last-commit/rwellingtonr/coffee-delivery-ignite) ![GitHub repo size](https://img.shields.io/github/repo-size/rwellingtonr/coffee-delivery-ignite) ![GitHub top language](https://img.shields.io/github/languages/top/rwellingtonr/coffee-delivery-ignite)
+
+<img src='./docs/imageedit_0_8837677259.gif' width='100%' height='auto'/>
 
 ## Motivação
 
