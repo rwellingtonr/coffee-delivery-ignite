@@ -9,6 +9,7 @@ import { submitOrder } from "~/repository/order"
 import { Order } from "~/interface/order"
 import { useNavigate } from "react-router-dom"
 import { useShoppingCart } from "~/context/ShoppingCart"
+import { useState } from "react"
 
 const formInitialValues = {
 	additional: "",
@@ -21,8 +22,16 @@ const formInitialValues = {
 }
 
 export function Checkout() {
+	const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 	const navigate = useNavigate()
-	const { itemsPrice, totalCost, deliveryCost, shoppingCart, paymentMethod } = useShoppingCart()
+	const {
+		itemsPrice,
+		totalCost,
+		deliveryCost,
+		shoppingCart,
+		paymentMethod,
+		handleCleanShoppingCart,
+	} = useShoppingCart()
 
 	const hookFormProps = useForm<AddressSchemaType>({
 		resolver: zodResolver(AddressSchema),
@@ -31,6 +40,7 @@ export function Checkout() {
 
 	const handleSubmitOrder: SubmitHandler<AddressSchemaType> = async (props) => {
 		console.log(props)
+		setIsSubmitting(true)
 		const order: Order = {
 			coffeeId: shoppingCart.coffee.map((coffee) => coffee.id),
 			address: {
@@ -44,6 +54,8 @@ export function Checkout() {
 			},
 		}
 		await submitOrder(order)
+		setIsSubmitting(false)
+		handleCleanShoppingCart()
 		navigate("/delivery", { state: order })
 	}
 
@@ -57,7 +69,7 @@ export function Checkout() {
 				</Styled.CheckoutContainer>
 				<Styled.CheckoutContainer>
 					<h5>Cafés selecionados</h5>
-					<CoffeeCard />
+					<CoffeeCard isSubmitting={isSubmitting} />
 				</Styled.CheckoutContainer>
 			</FormProvider>
 		</Styled.FormCheckoutContainer>

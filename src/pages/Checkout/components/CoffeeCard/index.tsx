@@ -1,10 +1,15 @@
 import { useFormContext } from "react-hook-form"
+import { Loader } from "~/components/Loader"
 import { useShoppingCart } from "~/context/ShoppingCart"
 import type { AddressSchemaType } from "../../validation"
 import { ItemToCheckout } from "../ItemToCheckout"
 import * as Styled from "./styles"
 
-export function CoffeeCard() {
+type CoffeeCardProps = {
+	isSubmitting: boolean
+}
+
+export function CoffeeCard({ isSubmitting }: CoffeeCardProps) {
 	const { itemsPrice, totalCost, paymentMethod, deliveryCost } = useShoppingCart()
 
 	const { watch } = useFormContext<AddressSchemaType>()
@@ -30,9 +35,13 @@ export function CoffeeCard() {
 					<span>{`R$ ${totalCost}`}</span>
 				</dt>
 			</Styled.TotalPriceContainer>
-			<Styled.ConfirmOrderButton type="submit" disabled={!isSubmitButtonEnabled}>
-				Confirmar pedido
-			</Styled.ConfirmOrderButton>
+			{isSubmitting ? (
+				<Loader size={2} />
+			) : (
+				<Styled.ConfirmOrderButton type="submit" disabled={!isSubmitButtonEnabled}>
+					Confirmar pedido
+				</Styled.ConfirmOrderButton>
+			)}
 		</Styled.CoffeeCardContainer>
 	)
 }

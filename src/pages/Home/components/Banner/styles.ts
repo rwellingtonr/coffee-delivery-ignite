@@ -33,8 +33,18 @@ export const BannerContainer = styled.section`
 		height: auto;
 	}
 
-	@media (max-width: 700px) {
+	@media (max-width: 860px) {
 		flex-direction: column;
+		height: auto;
+
+		.information {
+			width: 100%;
+			grid-template-columns: repeat(1, auto);
+			justify-content: center;
+		}
+		img {
+			display: none;
+		}
 	}
 `
 export const HeadingWrapper = styled.section`
@@ -50,6 +60,16 @@ export const HeadingWrapper = styled.section`
 	p {
 		font-size: ${(props) => props.theme.sizes["xlg"]};
 		color: ${(props) => props.theme.colors["base-subtitle"]};
+	}
+	@media (max-width: 860px) {
+		align-items: center;
+		width: 100%;
+		h1 {
+			font-size: ${(props) => props.theme.sizes["xlg"]};
+		}
+		p {
+			font-size: ${(props) => props.theme.sizes["sm"]};
+		}
 	}
 `
 

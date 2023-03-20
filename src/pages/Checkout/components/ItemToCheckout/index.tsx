@@ -5,7 +5,13 @@ import { useShoppingCart } from "~/context/ShoppingCart"
 import { CoffeeSelectedContainer, Divider, RemoverButtonContainer } from "./styles"
 
 export function ItemToCheckout() {
-	const { handleRemoveFromCart, shoppingCart } = useShoppingCart()
+	const { handleRemoveFromCart, handleChangeQuantityFromCart, shoppingCart } = useShoppingCart()
+
+	const formatTotalPrice = (price: number) => {
+		const [decimal, fraction] = price.toString().split(".")
+		const cents = fraction?.padEnd(2, "0")?.slice(0, 2)
+		return `${decimal},${cents}`
+	}
 
 	return (
 		<>
@@ -17,7 +23,7 @@ export function ItemToCheckout() {
 							<div className="details">
 								<p>{coffee.title}</p>
 								<div className="actions">
-									<Counter id={coffee.id} />
+									<Counter id={coffee.id} onChangeQuantity={handleChangeQuantityFromCart} />
 									<RemoverButtonContainer
 										type="button"
 										onClick={() => handleRemoveFromCart(coffee.id)}
@@ -29,7 +35,7 @@ export function ItemToCheckout() {
 							</div>
 						</div>
 
-						<span>{`R$ ${coffee.price}`}</span>
+						<span>{`R$ ${formatTotalPrice(coffee.totalPrice)}`}</span>
 					</CoffeeSelectedContainer>
 					<Divider />
 				</Fragment>

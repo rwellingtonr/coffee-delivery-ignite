@@ -7,6 +7,7 @@ export type ShoppingCartProviderProps = {
 
 export type CoffeeState = CoffeeElements & {
 	quantity: number
+	totalPrice: number
 }
 type CoffeeOrder = {
 	id: number
@@ -23,6 +24,7 @@ export type ShoppingCartContextProps = {
 	handleRemoveFromCart: (id: number) => void
 	handleSetPaymentMethod: (method: string) => void
 	handleChangeQuantity: (id: number, quantity: number) => void
+	handleChangeQuantityFromCart: (id: number, quantity: number) => void
 	shoppingCart: ShoppingReducerState
 	itemsPrice: string
 	deliveryCost: string

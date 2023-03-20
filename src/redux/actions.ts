@@ -10,7 +10,7 @@ export enum ShoppingCartEnum {
 	REMOVE_FROM_SHOPPING_CART = "REMOVE_FROM_SHOPPING_CART",
 	CLEAN_SHOPPING_CART = "CLEAN_SHOPPING_CART",
 	CHANGE_QUANTITY = "CHANGE_QUANTITY",
-	DECREASE_QUANTITY = "DECREASE_QUANTITY",
+	CHANGE_QUANTITY_FROM_CART = "CHANGE_QUANTITY_FROM_CART",
 }
 
 export const addToShoppingCart = (coffee: CoffeeState): ActionProps => {
@@ -43,6 +43,16 @@ export const cleanShoppingCart = (): ActionProps => {
 export const changeQuantity = (id: number, quantity: number) => {
 	const action: ActionProps = {
 		type: ShoppingCartEnum.CHANGE_QUANTITY,
+		payload: {
+			id,
+			quantity,
+		},
+	}
+	return action
+}
+export const changeQuantityFromCart = (id: number, quantity: number) => {
+	const action: ActionProps = {
+		type: ShoppingCartEnum.CHANGE_QUANTITY_FROM_CART,
 		payload: {
 			id,
 			quantity,

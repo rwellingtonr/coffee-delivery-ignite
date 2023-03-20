@@ -4,6 +4,7 @@ import {
 	changeQuantity,
 	cleanShoppingCart,
 	removeFromShoppingCart,
+	changeQuantityFromCart,
 } from "~/redux/actions"
 import { shoppingReducer } from "~/redux/reducer"
 import type { CoffeeState, ShoppingCartContextProps, ShoppingCartProviderProps } from "./types"
@@ -33,8 +34,7 @@ export function ShippingCartProvider({ children }: ShoppingCartProviderProps) {
 	}, [shoppingCart])
 
 	const priceOfAllItens = shoppingCart.coffee.reduce((acc, coffee) => {
-		const priceToNumber = +coffee.price.replace(",", ".")
-		return acc + priceToNumber
+		return acc + coffee.totalPrice
 	}, 0)
 
 	const shippingPrice = priceOfAllItens * shoppingCart.coffee?.length * 0.035
@@ -42,8 +42,8 @@ export function ShippingCartProvider({ children }: ShoppingCartProviderProps) {
 	const totalPrice = shippingPrice + priceOfAllItens
 
 	const [intOfPriceItens, fracOfPriceItens] = String(priceOfAllItens).split(".")
-	const centsOfItensPrice = fracOfPriceItens?.padEnd(2, "0")
-	const itemsPrice = `${intOfPriceItens},${centsOfItensPrice}`
+	const centsOfItensPrice = fracOfPriceItens?.padEnd(2, "0")?.slice(0, 2)
+	const itemsPrice = `${intOfPriceItens},${centsOfItensPrice ?? "00"}`
 
 	const [intDelivery, floatDelivery] = shippingPrice.toString().split(".")
 	const centsOfDelivery = floatDelivery?.padEnd(2, "0")?.slice(0, 2)
@@ -72,23 +72,27 @@ export function ShippingCartProvider({ children }: ShoppingCartProviderProps) {
 
 	const handleChangeQuantity = (id: number, quantity: number) => {
 		console.log(quantity)
-
 		dispatch(changeQuantity(id, quantity))
+	}
+
+	const handleChangeQuantityFromCart = (id: number, quantity: number) => {
+		dispatch(changeQuantityFromCart(id, quantity))
 	}
 
 	return (
 		<ShoppingCartContext.Provider
 			value={{
-				paymentMethod,
 				handleChangeQuantity,
-				shoppingCart,
 				handleBuyCoffee,
 				handleCleanShoppingCart,
 				handleSetPaymentMethod,
 				handleRemoveFromCart,
+				handleChangeQuantityFromCart,
 				deliveryCost,
 				itemsPrice,
 				totalCost,
+				paymentMethod,
+				shoppingCart,
 			}}
 		>
 			{children}
