@@ -31,6 +31,7 @@ export const shoppingReducer = (
 		case ShoppingCartEnum.CLEAN_SHOPPING_CART: {
 			return produce(state, (draft) => {
 				draft.coffee = []
+				draft.coffeeOrder = []
 			})
 		}
 
