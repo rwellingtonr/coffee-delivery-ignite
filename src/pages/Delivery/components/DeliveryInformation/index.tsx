@@ -14,6 +14,8 @@ export function DeliveryInformation() {
 
 	const payment = paymentAccepted.find((payment) => payment.value === orderProps.payment.method)
 
+	const brState = state as keyof typeof brazilianStates
+
 	return (
 		<Styled.DeliveryInformationContainer>
 			<Styled.DeliveryContentWrapper>
@@ -25,7 +27,7 @@ export function DeliveryInformation() {
 						<p>
 							Entrega em <span>{`${address}, ${number}`}</span>
 						</p>
-						<p>{`${city}, ${brazilianStates[state]?.toUpperCase()}, ${state}`}</p>
+						<p>{`${city}, ${brazilianStates[brState]?.toUpperCase()}, ${state}`}</p>
 					</Styled.DeliveryInformationWrapper>
 				</div>
 				<div className="delivery-information">

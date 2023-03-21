@@ -12,6 +12,7 @@ export function CoffeeList() {
 			handleBuyCoffee({
 				...coffee,
 				quantity: 1,
+				totalPrice: 0,
 			})
 		}
 	}
