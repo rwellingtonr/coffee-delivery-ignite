@@ -29,14 +29,14 @@ export function Counter({ id, onChangeQuantity }: CounterProps) {
 	}
 
 	return (
-		<CounterContainer>
-			<button type="button" className="ghost_button" onClick={decreaseCounter}>
+		<CounterContainer data-testid='counter-container'>
+			<button type="button" data-testid='decrease-button' title='diminuir uma quantidade deste item' className="ghost_button" onClick={decreaseCounter}>
 				<Minus size={16} weight="bold" />
 			</button>
 
 			<span className="counter">{counter}</span>
 
-			<button type="button" className="ghost_button" onClick={increaseCounter}>
+			<button type="button" data-testid='increase-button' title='aumentar uma quantidade deste item' className="ghost_button" onClick={increaseCounter}>
 				<Plus size={16} weight="bold" />
 			</button>
 		</CounterContainer>
