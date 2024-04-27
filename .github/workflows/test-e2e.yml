@@ -1,0 +1,29 @@
+name: Run E2E tests
+
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Intall node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        env:
+          NEXT_PUBLIC_BASE_URL: 'https://ignite-devstore-api.vercel.app'
+          APP_URL: 'http://localhost:5173'
+        with:
+          build: pnpm build
+          start: pnpm start
