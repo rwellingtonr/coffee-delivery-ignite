@@ -1,11 +1,13 @@
 import { RouterProvider } from 'react-router-dom'
 import { router } from './routes'
-import { Provider } from './Provider'
+import { ShippingCartProvider } from './context/ShoppingCart'
+import { ThemeProvider } from './provider/ThemeProvider'
 
-export function App() {
-	return (
-		<Provider>
+export const App = () => (
+	<ThemeProvider>
+		<ShippingCartProvider>
 			<RouterProvider router={router} />
-		</Provider>
-	)
-}
+		</ShippingCartProvider>
+	</ThemeProvider>
+)
+
