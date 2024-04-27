@@ -21,9 +21,6 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
-        env:
-          NEXT_PUBLIC_BASE_URL: 'https://ignite-devstore-api.vercel.app'
-          APP_URL: 'http://localhost:5173'
         with:
           build: pnpm build
           start: pnpm start
