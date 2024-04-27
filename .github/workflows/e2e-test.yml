@@ -25,5 +25,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: pnpm build
-          start: pnpm preview --port 5173
+          start: pnpm dev
