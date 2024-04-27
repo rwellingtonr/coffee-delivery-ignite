@@ -12,6 +12,8 @@ export const CounterContainer = styled.div`
 
 	.ghost_button {
 		all: unset;
+		display: grid;
+		place-items: center;
 
 		svg {
 			color: ${(props) => props.theme.colors['purple']};
