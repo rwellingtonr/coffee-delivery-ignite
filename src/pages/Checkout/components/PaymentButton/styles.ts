@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from 'styled-components'
 
 export const PaymentContainer = styled.div`
 	display: flex;
@@ -14,28 +14,30 @@ export const PaymentButtonWrapper = styled.button`
 	padding: 1rem;
 	width: 11.167rem;
 
-	text-transform: uppercase;
-	color: ${(props) => props.theme.colors["base-text"]};
-	font-size: ${(props) => props.theme.sizes["xsm"]};
-
 	cursor: pointer;
+	text-transform: uppercase;
 
-	background-color: ${(props) => props.theme.colors["base-button"]};
 	border: 1px solid transparent;
 	border-radius: 6px;
 	transition: all 0.1s ease-in;
 
-	&:hover {
-		background-color: ${(props) => props.theme.colors["base-hover"]};
-		color: ${(props) => props.theme.colors["base-subtitle"]};
-	}
+	${({ theme }) => css`
+		color: ${theme.colors['base-text']};
+		font-size: ${theme.sizes['xsm']};
+		background-color: ${theme.colors['base-button']};
 
-	&:focus {
-		background-color: ${(props) => props.theme.colors["purple-light"]};
-		border: 1px solid ${(props) => props.theme.colors.purple};
-	}
+		&:enabled:hover {
+			background-color: ${theme.colors['base-hover']};
+			color: ${theme.colors['base-subtitle']};
+		}
 
-	svg {
-		color: ${(props) => props.theme.colors.purple};
-	}
+		&:enabled:focus {
+			background-color: ${theme.colors['purple-light']};
+			border: 1px solid ${theme.colors.purple};
+		}
+
+		svg {
+			color: ${theme.colors.purple};
+		}
+	`}
 `

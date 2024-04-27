@@ -1,9 +1,9 @@
-import * as Styles from "./styles"
-import { MapPin } from "phosphor-react"
-import logo from "~/assets/illustration/logo.svg"
-import { Link, useNavigate } from "react-router-dom"
-import { ShoppingCart } from "../ShoppingCart"
-import { useShoppingCart } from "~/context/ShoppingCart"
+import * as Styles from './styles'
+import { MapPin } from 'phosphor-react'
+import logo from '~/assets/illustration/logo.svg'
+import { Link, useNavigate } from 'react-router-dom'
+import { ShoppingCart } from '../ShoppingCart'
+import { useShoppingCart } from '~/context/ShoppingCart'
 
 export function Header() {
 	const { shoppingCart } = useShoppingCart()
@@ -14,13 +14,13 @@ export function Header() {
 	const handleNavigateToCheckout = () => {
 		const isThereProducts = totalOfItensOnCart !== 0
 		if (isThereProducts) {
-			navigate("/checkout")
+			navigate('/checkout')
 		}
 	}
 
 	return (
 		<Styles.HeaderContainer>
-			<Link to={"/"}>
+			<Link to={'/'} title="Logo da marca com um texto de Coffee Delivery">
 				<img src={logo} alt="Logo da marca com um texto de Coffee Delivery" />
 			</Link>
 			<Styles.ActionsWrapper>
@@ -29,7 +29,7 @@ export function Header() {
 					<p>Vinhedo, SP</p>
 				</Styles.LocationWrapper>
 
-				<Styles.ShoppingIconWithNotification onClick={handleNavigateToCheckout}>
+				<Styles.ShoppingIconWithNotification type="button" onClick={handleNavigateToCheckout}>
 					<ShoppingCart variant="primary" />
 					{totalOfItensOnCart ? <span>{totalOfItensOnCart}</span> : <></>}
 				</Styles.ShoppingIconWithNotification>

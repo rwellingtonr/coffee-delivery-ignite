@@ -1,27 +1,20 @@
-import { InputHTMLAttributes } from "react"
-import { Path, UseFormRegister } from "react-hook-form"
+import { type ComponentProps, forwardRef } from 'react'
+import { InputContainer } from './styles'
 
-import type { AddressSchemaType } from "~/pages/Checkout/validation"
-import { InputContainer, InputTextContainer } from "./styles"
-
-interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
-	label: Path<AddressSchemaType>
-	register: UseFormRegister<AddressSchemaType>
+interface InputTextProps extends ComponentProps<'input'> {
 	required?: boolean
 	error: boolean
 }
 
-export function InputText({
-	label,
-	register,
-	required = true,
-	error = false,
-	...props
-}: InputTextProps) {
+export const InputText = forwardRef<HTMLInputElement, InputTextProps>((props, forwardRef) => {
+	const { error, required = true, ...rest } = props
+
 	return (
-		<InputContainer error={error}>
-			<InputTextContainer {...props} {...register(label, { required })} />
+		<InputContainer $error={`${error}`}>
+			<input {...rest} className="input_text" ref={forwardRef} />
 			{required ? <p className="optional">opcional</p> : <></>}
 		</InputContainer>
 	)
-}
+})
+
+InputText.displayName = 'InputText'

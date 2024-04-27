@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import type { TopicVariants } from "./elements"
-import backgroundImage from "~/assets/illustration/Background.png"
+import styled from 'styled-components'
+import type { TopicVariants } from './elements'
+import backgroundImage from '~/assets/illustration/Background.png'
 
 type IconVariant = {
 	variant: TopicVariants
@@ -54,21 +54,21 @@ export const HeadingWrapper = styled.section`
 
 	h1 {
 		font-weight: 800;
-		font-size: ${(props) => props.theme.sizes["5xlg"]};
-		color: ${(props) => props.theme.colors["base-title"]};
+		font-size: ${(props) => props.theme.sizes['5xlg']};
+		color: ${(props) => props.theme.colors['base-title']};
 	}
 	p {
-		font-size: ${(props) => props.theme.sizes["xlg"]};
-		color: ${(props) => props.theme.colors["base-subtitle"]};
+		font-size: ${(props) => props.theme.sizes['xlg']};
+		color: ${(props) => props.theme.colors['base-subtitle']};
 	}
 	@media (max-width: 860px) {
 		align-items: center;
 		width: 100%;
 		h1 {
-			font-size: ${(props) => props.theme.sizes["xlg"]};
+			font-size: ${(props) => props.theme.sizes['xlg']};
 		}
 		p {
-			font-size: ${(props) => props.theme.sizes["sm"]};
+			font-size: ${(props) => props.theme.sizes['sm']};
 		}
 	}
 `
@@ -79,8 +79,8 @@ export const TopicContainer = styled.div`
 	align-items: center;
 
 	p {
-		color: ${(props) => props.theme.colors["base-text"]};
-		font-size: ${(props) => props.theme.sizes["md"]};
+		color: ${(props) => props.theme.colors['base-text']};
+		font-size: ${(props) => props.theme.sizes['md']};
 		flex: 1;
 	}
 `

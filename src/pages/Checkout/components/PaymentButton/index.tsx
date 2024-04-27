@@ -1,6 +1,6 @@
-import { useShoppingCart } from "~/context/ShoppingCart"
-import { paymentMethods } from "./elements"
-import * as Styled from "./styles"
+import { useShoppingCart } from '~/context/ShoppingCart'
+import { paymentMethods } from './elements'
+import * as Styled from './styles'
 
 export function PaymentButton() {
 	const { handleSetPaymentMethod } = useShoppingCart()

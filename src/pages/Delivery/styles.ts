@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const DeliveryContainer = styled.main`
 	display: flex;
@@ -15,14 +15,14 @@ export const DeliveryContainer = styled.main`
 		margin-bottom: 40px;
 
 		& > h1 {
-			color: ${(props) => props.theme.colors["yellow-dark"]};
+			color: ${(props) => props.theme.colors['yellow-dark']};
 			font-weight: 800;
-			font-size: ${(props) => props.theme.sizes["4xlg"]};
+			font-size: ${(props) => props.theme.sizes['4xlg']};
 		}
 		& > p {
 			margin-top: 0.25rem;
-			color: ${(props) => props.theme.colors["base-subtitle"]};
-			font-size: ${(props) => props.theme.sizes["xlg"]};
+			color: ${(props) => props.theme.colors['base-subtitle']};
+			font-size: ${(props) => props.theme.sizes['xlg']};
 		}
 	}
 

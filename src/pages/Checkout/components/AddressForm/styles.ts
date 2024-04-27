@@ -1,11 +1,11 @@
-import styled from "styled-components"
-import InputMask from "react-input-mask"
+import styled from 'styled-components'
+import InputMask from 'react-input-mask'
 
 export const CheckoutContainer = styled.section`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	background: ${(props) => props.theme.colors["base-card"]};
+	background: ${(props) => props.theme.colors['base-card']};
 	border-radius: 6px;
 	padding: 2.5rem;
 `
@@ -24,7 +24,7 @@ export const CheckoutHeading = styled.div`
 	width: 100%;
 
 	svg {
-		color: ${(props) => props.theme.colors["yellow-dark"]};
+		color: ${(props) => props.theme.colors['yellow-dark']};
 	}
 
 	.address-information {
@@ -34,12 +34,12 @@ export const CheckoutHeading = styled.div`
 		gap: 2px;
 
 		.address-title {
-			color: ${(props) => props.theme.colors["base-subtitle"]};
+			color: ${(props) => props.theme.colors['base-subtitle']};
 		}
 
 		.address-description {
-			color: ${(props) => props.theme.colors["base-text"]};
-			font-size: ${(props) => props.theme.sizes["sm"]};
+			color: ${(props) => props.theme.colors['base-text']};
+			font-size: ${(props) => props.theme.sizes['sm']};
 		}
 	}
 `
@@ -55,7 +55,7 @@ export const InputsContainer = styled.div`
 		width: 100%;
 		align-items: center;
 		grid: auto-flow / auto 1fr;
-		gap: ${(props) => props.theme.sizes["xsm"]};
+		gap: ${(props) => props.theme.sizes['xsm']};
 	}
 
 	.city-address {
@@ -63,30 +63,30 @@ export const InputsContainer = styled.div`
 		width: 100%;
 		align-items: center;
 		grid: auto-flow / auto 1fr 3.75rem;
-		gap: ${(props) => props.theme.sizes["xsm"]};
+		gap: ${(props) => props.theme.sizes['xsm']};
 	}
 `
 export const InputMaskWrapper = styled(InputMask)`
 	display: flex;
 	align-items: center;
-	padding: ${(props) => props.theme.sizes["xsm"]};
+	padding: ${(props) => props.theme.sizes['xsm']};
 	gap: 0.25rem;
 	width: 100%;
 
-	color: ${(props) => props.theme.colors["base-text"]};
-	font-size: ${(props) => props.theme.sizes["sm"]};
+	color: ${(props) => props.theme.colors['base-text']};
+	font-size: ${(props) => props.theme.sizes['sm']};
 
-	background: ${(props) => props.theme.colors["base-input"]};
-	border: 1px solid ${(props) => props.theme.colors["base-button"]};
+	background: ${(props) => props.theme.colors['base-input']};
+	border: 1px solid ${(props) => props.theme.colors['base-button']};
 	border-radius: 4px;
 	outline: transparent;
 
 	&:active,
 	&:focus-within {
-		outline: 1px solid ${(props) => props.theme.colors["yellow-dark"]};
+		outline: 1px solid ${(props) => props.theme.colors['yellow-dark']};
 	}
 
 	&::placeholder {
-		color: ${(props) => props.theme.colors["base-label"]};
+		color: ${(props) => props.theme.colors['base-label']};
 	}
 `

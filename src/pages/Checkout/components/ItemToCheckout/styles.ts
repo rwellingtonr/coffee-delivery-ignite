@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from 'styled-components'
 
 export const CoffeeSelectedContainer = styled.div`
 	display: flex;
@@ -22,7 +22,7 @@ export const CoffeeSelectedContainer = styled.div`
 			align-items: flex-start;
 			gap: 0.5rem;
 
-			color: ${(props) => props.theme.colors["base-subtitle"]};
+			color: ${(props) => props.theme.colors['base-subtitle']};
 
 			.actions {
 				display: flex;
@@ -44,27 +44,29 @@ export const RemoverButtonContainer = styled.button`
 
 	border: none;
 	border-radius: 6px;
-	background-color: ${(props) => props.theme.colors["base-button"]};
-
 	text-transform: uppercase;
-	font-size: ${(props) => props.theme.sizes["xsm"]};
-	color: ${(props) => props.theme.colors["base-text"]};
 	line-height: 1.6;
-
 	transition: all 0.1s ease-in;
 
-	&:hover {
-		color: ${(props) => props.theme.colors["base-subtitle"]};
-		background-color: ${(props) => props.theme.colors["base-hover"]};
-	}
+	${({ theme }) => css`
+		background-color: ${theme.colors['base-button']};
 
-	svg {
-		color: ${(props) => props.theme.colors["purple"]};
-	}
+		font-size: ${theme.sizes['xsm']};
+		color: ${theme.colors['base-text']};
+
+		&:enabled:hover {
+			color: ${theme.colors['base-subtitle']};
+			background-color: ${theme.colors['base-hover']};
+		}
+
+		svg {
+			color: ${theme.colors['purple']};
+		}
+	`}
 `
 
 export const Divider = styled.div`
 	width: 100%;
 	height: 1px;
-	background: ${(props) => props.theme.colors["base-button"]};
+	background: ${({ theme }) => theme.colors['base-button']};
 `

@@ -1,6 +1,6 @@
-import { ActionProps, ShoppingCartEnum } from "./actions"
-import { produce } from "immer"
-import type { CoffeeState, ShoppingReducerState } from "~/context/ShoppingCart/types"
+import { ActionProps, ShoppingCartEnum } from './actions'
+import { produce } from 'immer'
+import type { CoffeeState, ShoppingReducerState } from '~/context/ShoppingCart/types'
 
 export const shoppingReducer = (
 	state: ShoppingReducerState,
@@ -11,7 +11,7 @@ export const shoppingReducer = (
 			const coffeeOrder = state.coffeeOrder.find((coffee) => coffee.id === payload.coffee.id)
 			return produce(state, (draft) => {
 				const quantity = coffeeOrder?.quantity ?? 1
-				const price = +payload.coffee.price.replace(",", ".")
+				const price = +payload.coffee.price.replace(',', '.')
 
 				const toAdd: CoffeeState = {
 					...payload.coffee,
@@ -50,7 +50,7 @@ export const shoppingReducer = (
 			const index = state?.coffee?.findIndex((coffee) => coffee.id === payload.id)
 
 			return produce(state, (draft) => {
-				const unitPrice = +draft.coffee[index].price.replace(",", ".")
+				const unitPrice = +draft.coffee[index].price.replace(',', '.')
 				draft.coffee[index].quantity = payload.quantity
 				draft.coffee[index].totalPrice = unitPrice * payload.quantity
 			})

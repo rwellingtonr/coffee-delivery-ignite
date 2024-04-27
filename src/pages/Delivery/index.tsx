@@ -1,6 +1,6 @@
-import { DeliveryInformation } from "./components/DeliveryInformation"
-import motoboy from "~/assets/illustration/motoboy.svg"
-import { DeliveryContainer } from "./styles"
+import { DeliveryInformation } from './components/DeliveryInformation'
+import motoboy from '~/assets/illustration/motoboy.svg'
+import { DeliveryContainer } from './styles'
 
 export function Delivery() {
 	return (

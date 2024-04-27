@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const MainContainer = styled.main`
 	display: flex;
@@ -12,9 +12,9 @@ export const MainContainer = styled.main`
 		width: 100%;
 		text-align: left;
 		margin-bottom: 3.375rem;
-		font-size: ${(props) => props.theme.sizes["4xlg"]};
+		font-size: ${(props) => props.theme.sizes['4xlg']};
 		font-weight: 800;
-		color: ${(props) => props.theme.colors["base-subtitle"]};
+		color: ${(props) => props.theme.colors['base-subtitle']};
 	}
 `
 
@@ -31,7 +31,7 @@ export const CardGridContainer = styled.div`
 export const CardContainer = styled.article`
 	height: 19.375rem;
 	width: 16rem;
-	background: ${(props) => props.theme.colors["base-card"]};
+	background: ${(props) => props.theme.colors['base-card']};
 	border-radius: 6px 36px;
 
 	display: flex;
@@ -56,11 +56,11 @@ export const CardContainer = styled.article`
 		span {
 			padding: 0.25rem 0.5rem;
 			border-radius: 100px;
-			background: ${(props) => props.theme.colors["yellow-light"]};
+			background: ${(props) => props.theme.colors['yellow-light']};
 
 			text-transform: uppercase;
-			color: ${(props) => props.theme.colors["yellow-dark"]};
-			font-size: ${(props) => props.theme.sizes["2xsm"]};
+			color: ${(props) => props.theme.colors['yellow-dark']};
+			font-size: ${(props) => props.theme.sizes['2xsm']};
 			font-weight: 700;
 		}
 	}
@@ -69,16 +69,16 @@ export const CardContainer = styled.article`
 		font-weight: 700;
 		margin-top: 1rem;
 		text-align: center;
-		font-size: ${(props) => props.theme.sizes["xlg"]};
-		line-height: ${(props) => props.theme.sizes["3xlg"]};
-		color: ${(props) => props.theme.colors["base-subtitle"]};
+		font-size: ${(props) => props.theme.sizes['xlg']};
+		line-height: ${(props) => props.theme.sizes['3xlg']};
+		color: ${(props) => props.theme.colors['base-subtitle']};
 	}
 
 	.description {
 		margin-top: 0.5rem;
-		font-size: ${(props) => props.theme.sizes["sm"]};
+		font-size: ${(props) => props.theme.sizes['sm']};
 		text-align: center;
 		width: 13.5rem;
-		color: ${(props) => props.theme.colors["base-label"]};
+		color: ${(props) => props.theme.colors['base-label']};
 	}
 `

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
 	display: flex;
@@ -30,38 +30,40 @@ export const LocationWrapper = styled.div`
 	align-items: center;
 	padding: 0.5rem;
 	gap: 4px;
-	background: ${(props) => props.theme.colors["purple-light"]};
+	background: ${(props) => props.theme.colors['purple-light']};
 	border-radius: 6px;
 
 	svg {
-		color: ${(props) => props.theme.colors["purple"]};
+		color: ${(props) => props.theme.colors['purple']};
 	}
 
 	p {
-		color: ${(props) => props.theme.colors["purple-dark"]};
+		color: ${(props) => props.theme.colors['purple-dark']};
 	}
 
 	@media (max-width: 1120px) {
 		p {
-			font-size: ${(props) => props.theme.sizes["sm"]};
+			font-size: ${(props) => props.theme.sizes['sm']};
 		}
 	}
 `
-export const ShoppingIconWithNotification = styled.div`
+export const ShoppingIconWithNotification = styled.button`
 	position: relative;
+	border: none;
+	background-color: ${(props) => props.theme.colors.transparent};
 
 	span {
 		position: absolute;
 		right: -8.35px;
 		top: -8px;
-		font-size: ${(props) => props.theme.sizes["sm"]};
+		font-size: ${(props) => props.theme.sizes['sm']};
 		color: ${(props) => props.theme.colors.white};
 		font-weight: 700;
 		text-align: center;
 		border-radius: 50%;
-		background: ${(props) => props.theme.colors["yellow-dark"]};
-		width: 20px;
-		height: 20px;
+		background: ${(props) => props.theme.colors['yellow-dark']};
+		width: 1.25rem;
+		height: 1.25rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;

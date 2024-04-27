@@ -1,7 +1,7 @@
-import * as Styles from "./styles"
-import { coffeeElements } from "~/repository/coffee"
-import { Buy } from "../Buy"
-import { useShoppingCart } from "~/context/ShoppingCart"
+import * as Styles from './styles'
+import { coffeeElements } from '~/repository/coffee'
+import { Buy } from '../Buy'
+import { useShoppingCart } from '~/context/ShoppingCart'
 
 export function CoffeeList() {
 	const { handleBuyCoffee } = useShoppingCart()

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const FormCheckoutContainer = styled.form`
 	display: flex;
@@ -19,8 +19,8 @@ export const CheckoutContainer = styled.div`
 	gap: 0.75rem;
 
 	& > h5 {
-		color: ${(props) => props.theme.colors["base-subtitle"]};
+		color: ${(props) => props.theme.colors['base-subtitle']};
 		font-weight: 700;
-		font-size: ${(props) => props.theme.sizes["lg"]};
+		font-size: ${(props) => props.theme.sizes['lg']};
 	}
 `

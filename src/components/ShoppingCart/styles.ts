@@ -1,27 +1,29 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const shoppingCartVariant = {
 	primary: {
-		background: "yellow-light",
-		color: "yellow-dark",
-		bgHover: "yellow",
+		background: 'yellow-light',
+		color: 'yellow-dark',
+		bgHover: 'yellow',
 	},
 	secondary: {
-		background: "purple-dark",
-		color: "white",
-		bgHover: "purple",
+		background: 'purple-dark',
+		color: 'white',
+		bgHover: 'purple',
 	},
 } as const
 
+export type ShoppingCartVariant = keyof typeof shoppingCartVariant
+
 type VariantProps = {
-	variant: keyof typeof shoppingCartVariant
+	readonly $variant: ShoppingCartVariant
 }
 
 export const ShoppingCartWrapper = styled.button<VariantProps>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: ${(props) => props.theme.colors[shoppingCartVariant[props.variant].background]};
+	background: ${(props) => props.theme.colors[shoppingCartVariant[props.$variant].background]};
 	border-radius: 6px;
 	padding: 0.5rem;
 	cursor: pointer;
@@ -29,10 +31,10 @@ export const ShoppingCartWrapper = styled.button<VariantProps>`
 	border: none;
 
 	&:hover {
-		background: ${(props) => props.theme.colors[shoppingCartVariant[props.variant].bgHover]};
+		background: ${(props) => props.theme.colors[shoppingCartVariant[props.$variant].bgHover]};
 	}
 
 	svg {
-		color: ${(props) => props.theme.colors[shoppingCartVariant[props.variant].color]};
+		color: ${(props) => props.theme.colors[shoppingCartVariant[props.$variant].color]};
 	}
 `

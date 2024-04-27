@@ -1,10 +1,10 @@
-import { CurrencyDollar, MapPin, Timer } from "phosphor-react"
-import { useLocation } from "react-router-dom"
-import type { Order } from "~/interface/order"
-import { paymentAccepted } from "~/repository/payments"
-import { brazilianStates } from "~/repository/states"
+import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useLocation } from 'react-router-dom'
+import type { Order } from '~/interface/order'
+import { paymentAccepted } from '~/repository/payments'
+import { brazilianStates } from '~/repository/states'
 
-import * as Styled from "./styles"
+import * as Styled from './styles'
 
 export function DeliveryInformation() {
 	const location = useLocation()

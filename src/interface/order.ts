@@ -1,4 +1,4 @@
-import type { AddressSchemaType } from "~/pages/Checkout/validation"
+import type { AddressSchemaType } from '~/pages/Checkout/validation'
 
 type Payment = {
 	method: string

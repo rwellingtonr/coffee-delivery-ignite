@@ -1,14 +1,17 @@
-import { ShoppingCart as Cart } from "phosphor-react"
-import { ButtonHTMLAttributes } from "react"
-import { ShoppingCartWrapper } from "./styles"
+import { ShoppingCart as Cart } from 'phosphor-react'
+import { ComponentProps, forwardRef } from 'react'
+import { type ShoppingCartVariant, ShoppingCartWrapper } from './styles'
 
-type ShoppingCartProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-	variant: "primary" | "secondary"
+type ShoppingCartProps = ComponentProps<'button'> & {
+	variant: ShoppingCartVariant
 }
-export function ShoppingCart({ variant, ...props }: ShoppingCartProps) {
-	return (
-		<ShoppingCartWrapper variant={variant} {...props}>
+
+export const ShoppingCart = forwardRef<HTMLButtonElement, ShoppingCartProps>(
+	({ variant, ...props }, forwardRef) => (
+		<ShoppingCartWrapper {...props} $variant={variant} ref={forwardRef}>
 			<Cart size={22} weight="fill" />
 		</ShoppingCartWrapper>
-	)
-}
+	),
+)
+
+ShoppingCart.displayName = 'ShoppingCart'
