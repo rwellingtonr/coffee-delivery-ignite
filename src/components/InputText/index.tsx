@@ -10,8 +10,8 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>((props, fo
 	const { error, required = true, ...rest } = props
 
 	return (
-		<InputContainer $error={`${error}`}>
-			<input {...rest} className="input_text" ref={forwardRef} />
+		<InputContainer data-testid='input-container' $error={`${error}`}>
+			<input {...rest} type='text' className="input_text" ref={forwardRef} />
 			{required ? <p className="optional">opcional</p> : <></>}
 		</InputContainer>
 	)

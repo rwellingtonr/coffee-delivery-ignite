@@ -7,7 +7,7 @@ export type LoaderProps = {
 export function Loader({ size }: LoaderProps) {
 	return (
 		<LoaderContainer>
-			<LoaderSpanContainer $size={size} />
+			<LoaderSpanContainer data-testid="span-loader" $size={size} />
 		</LoaderContainer>
 	)
 }
