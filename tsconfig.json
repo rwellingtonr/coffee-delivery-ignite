@@ -27,14 +27,11 @@
 		"paths": {
 			"~/*": [
 				"./src/*"
+			],
+			"~test/*": [
+				"./__test__/*"
 			]
-		},
-		"plugins": [
-			{
-				"name": "@styled/typescript-styled-plugin",
-				"validate": true
-			}
-		]
+		}
 	},
 	"include": [
 		"src"
