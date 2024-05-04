@@ -18,10 +18,12 @@ export function CoffeeList() {
 	}
 
 	return (
-		<>
-			<Styles.MainContainer>
-				<h2>Nosso Café</h2>
 
+		<Styles.MainContainer>
+			<div className="wrapper">
+
+
+				<h2>Nosso Café</h2>
 				<Styles.CardGridContainer>
 					{coffeeElements.map((coffee) => (
 						<Styles.CardContainer key={coffee.id}>
@@ -38,7 +40,8 @@ export function CoffeeList() {
 						</Styles.CardContainer>
 					))}
 				</Styles.CardGridContainer>
-			</Styles.MainContainer>
-		</>
+			</div>
+		</Styles.MainContainer>
+
 	)
 }

@@ -1,19 +1,21 @@
 import styled, { css } from 'styled-components'
+import { media } from '~/styles/breakpoints'
 
 export const CoffeeSelectedContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
 	padding: 0.5rem 0.25rem;
-	width: 23rem;
+	width: 100%;
 
 	.information {
 		display: flex;
 		align-items: center;
+		flex-direction: column;
 		gap: 1.25rem;
 
 		img {
-			width: 4rem;
+			width: 6rem;
 		}
 
 		.details {
@@ -30,6 +32,14 @@ export const CoffeeSelectedContainer = styled.div`
 				gap: 0.5rem;
 			}
 		}
+
+		${media.lg`
+			flex-direction: row;
+
+			img {
+				width: 4rem;
+			}
+		`}
 	}
 `
 

@@ -1,15 +1,21 @@
 import styled, { css } from 'styled-components'
+import { media } from '~/styles/breakpoints'
 
 export const CoffeeCardContainer = styled.section`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	width: 100%;
 
 	gap: ${({ theme }) => theme.sizes['3xlg']};
-	padding: 2.5rem;
+	padding: 1.5rem;
 
 	background-color: ${({ theme }) => theme.colors['base-card']};
 	border-radius: 6px 44px;
+
+	${media.lg`
+		padding: 2.5rem;
+	`}
 `
 export const TotalPriceContainer = styled.dl`
 	display: flex;

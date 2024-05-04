@@ -38,6 +38,7 @@ const sizes = {
 	'3xlg': '1.5rem',
 	'4xlg': '2rem',
 	'5xlg': '3rem',
+	'6xl': '4rem',
 } as const
 
 const lineHeight = {

@@ -63,12 +63,12 @@ export function Checkout() {
 	return (
 		<Styled.FormCheckoutContainer onSubmit={hookFormProps.handleSubmit(handleSubmitOrder)}>
 			<FormProvider {...hookFormProps}>
-				<Styled.CheckoutContainer>
+				<Styled.CheckoutContainer className='input_container'>
 					<h5>Complete seu pedido</h5>
 					<AddressForm />
 					<PaymentMethod />
 				</Styled.CheckoutContainer>
-				<Styled.CheckoutContainer>
+				<Styled.CheckoutContainer className='checkout_container'>
 					<h5>Cafés selecionados</h5>
 					<CoffeeCard isSubmitting={isSubmitting} />
 				</Styled.CheckoutContainer>

@@ -5,6 +5,7 @@ import * as Styled from './styles'
 import { useCepAddress } from '~/hook/useCepAddress'
 import type { AddressSchemaType } from '../../validation'
 import { useEffect } from 'react'
+import { Loader } from './Loader'
 
 export function AddressForm() {
 	const {
@@ -49,7 +50,7 @@ export function AddressForm() {
 						/>
 					</div>
 					{isLoading ? (
-						<p>Buscando...</p>
+						<Loader />
 					) : (
 						<>
 							<InputText

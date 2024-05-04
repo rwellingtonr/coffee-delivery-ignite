@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import InputMask from 'react-input-mask'
+import { media } from '~/styles/breakpoints'
 
 export const CheckoutContainer = styled.section`
 	display: flex;
@@ -7,14 +8,19 @@ export const CheckoutContainer = styled.section`
 	align-items: flex-start;
 	background: ${(props) => props.theme.colors['base-card']};
 	border-radius: 6px;
-	padding: 2.5rem;
+	padding: 1.5rem;
+	width: 100%;
+
+	${media.lg`
+		padding: 2.5rem;
+	`}
 `
 export const ContentWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 2rem;
-	width: 35rem;
+	width: 100%;
 `
 
 export const CheckoutHeading = styled.div`
@@ -54,16 +60,24 @@ export const InputsContainer = styled.div`
 		display: grid;
 		width: 100%;
 		align-items: center;
-		grid: auto-flow / auto 1fr;
+		grid: auto-flow / 1fr;
 		gap: ${(props) => props.theme.sizes['xsm']};
+
+		${media.lg`
+			grid: auto-flow / auto 1fr;
+		`}
 	}
 
 	.city-address {
 		display: grid;
 		width: 100%;
 		align-items: center;
-		grid: auto-flow / auto 1fr 3.75rem;
+		grid: auto-flow / 1fr;
 		gap: ${(props) => props.theme.sizes['xsm']};
+
+		${media.lg`
+			grid: auto-flow / auto 1fr 3.75rem;
+		`}
 	}
 `
 export const InputMaskWrapper = styled(InputMask)`

@@ -29,9 +29,9 @@ export function Header() {
 					<p>Vinhedo, SP</p>
 				</Styles.LocationWrapper>
 
-				<Styles.ShoppingIconWithNotification type="button" onClick={handleNavigateToCheckout}>
+				<Styles.ShoppingIconWithNotification data-testid='shopping-cart' type="button" onClick={handleNavigateToCheckout}>
 					<ShoppingCart variant="primary" />
-					{totalOfItensOnCart ? <span>{totalOfItensOnCart}</span> : <></>}
+					{totalOfItensOnCart ? <span data-testid='notification-badge'>{totalOfItensOnCart}</span> : <></>}
 				</Styles.ShoppingIconWithNotification>
 			</Styles.ActionsWrapper>
 		</Styles.HeaderContainer>

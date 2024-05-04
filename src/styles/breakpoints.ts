@@ -1,4 +1,5 @@
-import { css, CSSObject, type SimpleInterpolation } from 'styled-components'
+import { css, type CSSObject, type Interpolation, type ThemedStyledProps } from 'styled-components'
+import type { defaultTheme } from './theme'
 
 const device = {
 	sm: '600px',
@@ -6,9 +7,11 @@ const device = {
 	lg: '1280px',
 } as const
 
+type InterpolationProps = Array<Interpolation<ThemedStyledProps<{}, typeof defaultTheme>>>
+
 type MediaFunction = (
 	first: TemplateStringsArray | CSSObject,
-	...interpolations: SimpleInterpolation[]
+	...interpolations: InterpolationProps
 ) => ReturnType<typeof css>
 
 interface Media {
@@ -19,17 +22,17 @@ interface Media {
 
 export const media: Media = {
 	sm: (...args) => css`
-		@media (max-width: ${device.sm}) {
+		@media (min-width: ${device.sm}) {
 			${css(...args)};
 		}
 	`,
 	md: (...args) => css`
-		@media (max-width: ${device.md}) {
+		@media (min-width: ${device.md}) {
 			${css(...args)};
 		}
 	`,
 	lg: (...args) => css`
-		@media (max-width: ${device.lg}) {
+		@media (min-width: ${device.lg}) {
 			${css(...args)};
 		}
 	`,

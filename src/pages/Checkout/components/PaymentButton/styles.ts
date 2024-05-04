@@ -1,18 +1,27 @@
 import styled, { css } from 'styled-components'
+import { media } from '~/styles/breakpoints'
 
 export const PaymentContainer = styled.div`
-	display: flex;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 	gap: 0.75rem;
+
+	${media.md`
+		grid-template-columns: repeat(3, 11.25rem);
+	`}
 `
 
 export const PaymentButtonWrapper = styled.button`
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	gap: 0.75rem;
 	padding: 1rem;
-	width: 11.167rem;
+	width: 100%;
 
 	cursor: pointer;
 	text-transform: uppercase;

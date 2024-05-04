@@ -1,4 +1,14 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const fadeIn = keyframes`
+  from {
+		opacity: 0.3;
+	}
+	to {
+		opacity: 1;
+	}
+		
+`
 
 export const MainContainer = styled.main`
 	display: flex;
@@ -7,28 +17,28 @@ export const MainContainer = styled.main`
 	align-items: center;
 	margin-top: 2rem;
 
-	h2 {
+	.wrapper {
 		max-width: 70rem;
 		width: 100%;
-		text-align: left;
-		margin-bottom: 3.375rem;
-		font-size: ${(props) => props.theme.sizes['4xlg']};
-		font-weight: 800;
-		color: ${(props) => props.theme.colors['base-subtitle']};
+
+		h2 {
+			margin-bottom: 3.375rem;
+			font-size: ${(props) => props.theme.sizes['4xlg']};
+			font-weight: 800;
+			color: ${(props) => props.theme.colors['base-subtitle']};
+		}
 	}
 `
 
 export const CardGridContainer = styled.div`
 	display: grid;
-	width: 100%;
-	max-width: 70rem;
-	grid-template-columns: repeat(auto-fit, 15.6rem);
+	grid-template-columns: repeat(auto-fit, 15rem);
 	justify-content: center;
 	grid-template-rows: 19.375rem;
 	grid-gap: 2rem 2.5rem;
 `
 
-export const CardContainer = styled.article`
+export const CardContainer = styled.section`
 	height: 19.375rem;
 	width: 16rem;
 	background: ${(props) => props.theme.colors['base-card']};
@@ -38,6 +48,10 @@ export const CardContainer = styled.article`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	animation: ${fadeIn} 1ms ease-in-out;
+	animation-timeline: view();
+	animation-range: cover 0 cover 50%;
 
 	img {
 		margin-top: -1.25rem;
