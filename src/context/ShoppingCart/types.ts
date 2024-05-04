@@ -1,5 +1,5 @@
-import { ReactNode } from "react"
-import type { CoffeeElements } from "~/interface/coffee"
+import { ReactNode } from 'react'
+import type { CoffeeElements } from '~/interface/coffee'
 
 export type ShoppingCartProviderProps = {
 	children: ReactNode

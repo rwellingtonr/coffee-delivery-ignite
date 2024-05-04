@@ -1,34 +1,52 @@
-import styled from "styled-components"
+import styled from 'styled-components'
+import { media } from '~/styles/breakpoints'
 
 export const DeliveryContainer = styled.main`
 	display: flex;
-	align-items: flex-end;
 	justify-content: center;
-	gap: 6.375rem;
 	margin-top: 5rem;
+	flex-direction: column;
+	align-items: center;
+	gap: 3rem;
 
 	img {
-		width: 30.75rem;
+		width: 100%;
 	}
 
-	.heading {
-		margin-bottom: 40px;
+	.content {
+		padding: 0 0.5rem;
 
-		& > h1 {
-			color: ${(props) => props.theme.colors["yellow-dark"]};
-			font-weight: 800;
-			font-size: ${(props) => props.theme.sizes["4xlg"]};
+		.heading {
+			margin-bottom: 40px;
+			text-align: center;
+
+			& > h1 {
+				color: ${(props) => props.theme.colors['yellow-dark']};
+				font-weight: 800;
+				font-size: ${(props) => props.theme.sizes['4xlg']};
+			}
+			& > p {
+				margin-top: 0.25rem;
+				color: ${(props) => props.theme.colors['base-subtitle']};
+				font-size: ${(props) => props.theme.sizes['xlg']};
+			}
 		}
-		& > p {
-			margin-top: 0.25rem;
-			color: ${(props) => props.theme.colors["base-subtitle"]};
-			font-size: ${(props) => props.theme.sizes["xlg"]};
-		}
 	}
 
-	@media (max-width: 1062px) {
-		flex-direction: column;
-		align-items: center;
-		gap: 3rem;
-	}
+	${media.lg`
+		align-items: flex-end;
+		gap: 6.375rem;
+		flex-direction: row;
+
+		img {
+			width: 30.75rem;
+		}
+		.content{
+			padding: 0;
+
+			.heading {
+				text-align: left;
+			}
+		}
+	`}
 `

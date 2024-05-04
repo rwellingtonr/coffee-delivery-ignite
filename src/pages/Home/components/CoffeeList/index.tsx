@@ -1,7 +1,7 @@
-import * as Styles from "./styles"
-import { coffeeElements } from "~/repository/coffee"
-import { Buy } from "../Buy"
-import { useShoppingCart } from "~/context/ShoppingCart"
+import * as Styles from './styles'
+import { coffeeElements } from '~/repository/coffee'
+import { Buy } from '../Buy'
+import { useShoppingCart } from '~/context/ShoppingCart'
 
 export function CoffeeList() {
 	const { handleBuyCoffee } = useShoppingCart()
@@ -18,10 +18,12 @@ export function CoffeeList() {
 	}
 
 	return (
-		<>
-			<Styles.MainContainer>
-				<h2>Nosso Café</h2>
 
+		<Styles.MainContainer>
+			<div className="wrapper">
+
+
+				<h2>Nosso Café</h2>
 				<Styles.CardGridContainer>
 					{coffeeElements.map((coffee) => (
 						<Styles.CardContainer key={coffee.id}>
@@ -38,7 +40,8 @@ export function CoffeeList() {
 						</Styles.CardContainer>
 					))}
 				</Styles.CardGridContainer>
-			</Styles.MainContainer>
-		</>
+			</div>
+		</Styles.MainContainer>
+
 	)
 }

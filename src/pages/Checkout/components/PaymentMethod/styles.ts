@@ -1,12 +1,18 @@
-import styled from "styled-components"
+import styled from 'styled-components'
+import { media } from '~/styles/breakpoints'
 
 export const PaymentContainer = styled.section`
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 2.5rem;
+	padding: 1.5rem;
 	border-radius: 6px;
-	background: ${(props) => props.theme.colors["base-card"]};
+	background: ${(props) => props.theme.colors['base-card']};
+
+	${media.lg`
+		padding: 2.5rem;
+	`}
 `
 export const PaymentWrapper = styled.div`
 	display: flex;
@@ -24,7 +30,7 @@ export const PaymentHeading = styled.div`
 	width: 100%;
 
 	svg {
-		color: ${(props) => props.theme.colors["purple"]};
+		color: ${(props) => props.theme.colors['purple']};
 	}
 
 	.payment-information {
@@ -34,12 +40,12 @@ export const PaymentHeading = styled.div`
 		gap: 2px;
 
 		.payment-title {
-			color: ${(props) => props.theme.colors["base-subtitle"]};
+			color: ${(props) => props.theme.colors['base-subtitle']};
 		}
 
 		.payment-description {
-			color: ${(props) => props.theme.colors["base-text"]};
-			font-size: ${(props) => props.theme.sizes["sm"]};
+			color: ${(props) => props.theme.colors['base-text']};
+			font-size: ${(props) => props.theme.sizes['sm']};
 		}
 	}
 `

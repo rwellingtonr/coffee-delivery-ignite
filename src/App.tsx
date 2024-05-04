@@ -1,19 +1,13 @@
-import { RouterProvider } from "react-router-dom"
-import { ThemeProvider } from "styled-components"
-import { ShippingCartProvider } from "./context/ShoppingCart"
-import { router } from "./routes"
-import { GlobalStyle } from "./styles/globas"
-import { defaultTheme } from "./styles/theme"
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes'
+import { ShippingCartProvider } from './context/ShoppingCart'
+import { ThemeProvider } from './provider/ThemeProvider'
 
-export function App() {
-	return (
-		<>
-			<ThemeProvider theme={defaultTheme}>
-				<ShippingCartProvider>
-					<RouterProvider router={router} />
-				</ShippingCartProvider>
-				<GlobalStyle />
-			</ThemeProvider>
-		</>
-	)
-}
+export const App = () => (
+	<ThemeProvider>
+		<ShippingCartProvider>
+			<RouterProvider router={router} />
+		</ShippingCartProvider>
+	</ThemeProvider>
+)
+

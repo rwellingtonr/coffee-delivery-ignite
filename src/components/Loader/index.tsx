@@ -1,4 +1,4 @@
-import { LoaderContainer, LoaderSpanContainer } from "./styles"
+import { LoaderContainer, LoaderSpanContainer } from './styles'
 
 export type LoaderProps = {
 	size: number
@@ -7,7 +7,7 @@ export type LoaderProps = {
 export function Loader({ size }: LoaderProps) {
 	return (
 		<LoaderContainer>
-			<LoaderSpanContainer size={size} />
+			<LoaderSpanContainer data-testid="span-loader" $size={size} />
 		</LoaderContainer>
 	)
 }

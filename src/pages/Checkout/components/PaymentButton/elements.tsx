@@ -1,4 +1,4 @@
-import { Bank, CreditCard, Money } from "phosphor-react"
+import { Bank, CreditCard, Money } from 'phosphor-react'
 
 type PaymentMethodProps = {
 	label: string
@@ -8,18 +8,18 @@ type PaymentMethodProps = {
 
 export const paymentMethods: PaymentMethodProps[] = [
 	{
-		label: "Cartão de crédito",
-		value: "cartao-de-credito",
+		label: 'Cartão de crédito',
+		value: 'cartao-de-credito',
 		icon: <CreditCard size={16} />,
 	},
 	{
 		icon: <Bank size={16} />,
-		label: "cartão de débito",
-		value: "cartao-de-debito",
+		label: 'cartão de débito',
+		value: 'cartao-de-debito',
 	},
 	{
 		icon: <Money size={16} />,
-		label: "dinheiro",
-		value: "dinheiro",
+		label: 'dinheiro',
+		value: 'dinheiro',
 	},
 ]

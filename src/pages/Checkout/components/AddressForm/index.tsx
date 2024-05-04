@@ -1,10 +1,11 @@
-import { MapPin } from "phosphor-react"
-import { Controller, useFormContext } from "react-hook-form"
-import { InputText } from "~/components/InputText"
-import * as Styled from "./styles"
-import { useCepAddress } from "~/hook/useCepAddress"
-import type { AddressSchemaType } from "../../validation"
-import { useEffect } from "react"
+import { MapPin } from 'phosphor-react'
+import { useFormContext } from 'react-hook-form'
+import { InputText } from '~/components/InputText'
+import * as Styled from './styles'
+import { useCepAddress } from '~/hook/useCepAddress'
+import type { AddressSchemaType } from '../../validation'
+import { useEffect } from 'react'
+import { Loader } from './Loader'
 
 export function AddressForm() {
 	const {
@@ -14,15 +15,15 @@ export function AddressForm() {
 		formState: { errors },
 	} = useFormContext<AddressSchemaType>()
 
-	const cep = watch("cep")
-	console.log(cep)
+	const cep = watch('cep')
 
 	const { address, isCepFilled, isLoading } = useCepAddress(cep)
 
 	useEffect(() => {
 		if (address && !isLoading) {
 			Object.entries(address).forEach(([key, valeu]) => {
-				setValue(`${key}` as keyof AddressSchemaType, valeu)
+				const keyValue = key as keyof AddressSchemaType
+				setValue(keyValue, valeu)
 			})
 		}
 	}, [address, isLoading])
@@ -40,16 +41,16 @@ export function AddressForm() {
 				<Styled.InputsContainer>
 					<div>
 						<Styled.InputMaskWrapper
-							mask={"99999-999"}
+							mask={'99999-999'}
 							maskChar={null}
-							maskPlaceholder={"_"}
+							maskPlaceholder={'_'}
 							alwaysShowMask={true}
 							placeholder="99999-999"
-							{...register("cep")}
+							{...register('cep')}
 						/>
 					</div>
 					{isLoading ? (
-						<p>Buscando...</p>
+						<Loader />
 					) : (
 						<>
 							<InputText
@@ -57,49 +58,43 @@ export function AddressForm() {
 								required={true}
 								placeholder="Endereço"
 								disabled={!isCepFilled}
-								label="address"
-								register={register}
+								{...register('address')}
 							/>
 							<div className="additional-address">
 								<InputText
 									required={false}
 									placeholder="Número"
 									disabled={!isCepFilled}
-									label="number"
-									register={register}
+									{...register('number')}
 									error={!!errors.number}
 								/>
 								<InputText
-									register={register}
 									placeholder="Complemento"
 									disabled={!isCepFilled}
-									label="additional"
+									{...register('additional')}
 									error={!!errors.additional}
 								/>
 							</div>
 							<div className="city-address">
 								<InputText
 									required={false}
-									label="neighborhood"
 									placeholder="Bairro"
 									disabled={!isCepFilled}
-									register={register}
+									{...register('neighborhood')}
 									error={!!errors.neighborhood}
 								/>
 								<InputText
 									required={false}
 									placeholder="Cidade"
-									register={register}
+									{...register('city')}
 									disabled={!isCepFilled}
-									label="city"
 									error={!!errors.city}
 								/>
 								<InputText
-									label="state"
 									required={false}
 									placeholder="UF"
 									disabled={!isCepFilled}
-									register={register}
+									{...register('state')}
 									error={!!errors.state}
 								/>
 							</div>

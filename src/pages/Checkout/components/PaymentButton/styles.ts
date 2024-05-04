@@ -1,41 +1,52 @@
-import styled from "styled-components"
+import styled, { css } from 'styled-components'
+import { media } from '~/styles/breakpoints'
 
 export const PaymentContainer = styled.div`
-	display: flex;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 	gap: 0.75rem;
+
+	${media.md`
+		grid-template-columns: repeat(3, 11.25rem);
+	`}
 `
 
 export const PaymentButtonWrapper = styled.button`
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	gap: 0.75rem;
 	padding: 1rem;
-	width: 11.167rem;
-
-	text-transform: uppercase;
-	color: ${(props) => props.theme.colors["base-text"]};
-	font-size: ${(props) => props.theme.sizes["xsm"]};
+	width: 100%;
 
 	cursor: pointer;
+	text-transform: uppercase;
 
-	background-color: ${(props) => props.theme.colors["base-button"]};
 	border: 1px solid transparent;
 	border-radius: 6px;
 	transition: all 0.1s ease-in;
 
-	&:hover {
-		background-color: ${(props) => props.theme.colors["base-hover"]};
-		color: ${(props) => props.theme.colors["base-subtitle"]};
-	}
+	${({ theme }) => css`
+		color: ${theme.colors['base-text']};
+		font-size: ${theme.sizes['xsm']};
+		background-color: ${theme.colors['base-button']};
 
-	&:focus {
-		background-color: ${(props) => props.theme.colors["purple-light"]};
-		border: 1px solid ${(props) => props.theme.colors.purple};
-	}
+		&:enabled:hover {
+			background-color: ${theme.colors['base-hover']};
+			color: ${theme.colors['base-subtitle']};
+		}
 
-	svg {
-		color: ${(props) => props.theme.colors.purple};
-	}
+		&:enabled:focus {
+			background-color: ${theme.colors['purple-light']};
+			border: 1px solid ${theme.colors.purple};
+		}
+
+		svg {
+			color: ${theme.colors.purple};
+		}
+	`}
 `

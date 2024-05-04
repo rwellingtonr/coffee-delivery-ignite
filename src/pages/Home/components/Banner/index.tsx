@@ -1,6 +1,6 @@
-import banner from "~/assets/illustration/homeBanner.svg"
-import { topicElements } from "./elements"
-import { BannerContainer, HeadingWrapper, IconWrapper, TopicContainer } from "./styles"
+import banner from '~/assets/illustration/homeBanner.svg'
+import { topicElements } from './elements'
+import { BannerContainer, HeadingWrapper, IconWrapper, TopicContainer } from './styles'
 
 export function Banner() {
 	return (

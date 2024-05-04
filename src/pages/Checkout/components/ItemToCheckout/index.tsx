@@ -1,15 +1,15 @@
-import { Trash } from "phosphor-react"
-import { Fragment } from "react"
-import { Counter } from "~/components/Counter"
-import { useShoppingCart } from "~/context/ShoppingCart"
-import { CoffeeSelectedContainer, Divider, RemoverButtonContainer } from "./styles"
+import { Trash } from 'phosphor-react'
+import { Fragment } from 'react'
+import { Counter } from '~/components/Counter'
+import { useShoppingCart } from '~/context/ShoppingCart'
+import { CoffeeSelectedContainer, Divider, RemoverButtonContainer } from './styles'
 
 export function ItemToCheckout() {
 	const { handleRemoveFromCart, handleChangeQuantityFromCart, shoppingCart } = useShoppingCart()
 
 	const formatTotalPrice = (price: number) => {
-		const [decimal, fraction] = price.toString().split(".")
-		const cents = fraction?.padEnd(2, "0")?.slice(0, 2)
+		const [decimal, fraction] = price.toString().split('.')
+		const cents = fraction?.padEnd(2, '0')?.slice(0, 2)
 		return `${decimal},${cents}`
 	}
 

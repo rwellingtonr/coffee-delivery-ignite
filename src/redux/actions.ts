@@ -1,4 +1,4 @@
-import { CoffeeState } from "~/context/ShoppingCart/types"
+import { CoffeeState } from '~/context/ShoppingCart/types'
 
 export type ActionProps = {
 	type: ShoppingCartEnum
@@ -6,11 +6,11 @@ export type ActionProps = {
 }
 
 export enum ShoppingCartEnum {
-	ADD_TO_SHOPPING_CART = "ADD_TO_SHIPPING_CART",
-	REMOVE_FROM_SHOPPING_CART = "REMOVE_FROM_SHOPPING_CART",
-	CLEAN_SHOPPING_CART = "CLEAN_SHOPPING_CART",
-	CHANGE_QUANTITY = "CHANGE_QUANTITY",
-	CHANGE_QUANTITY_FROM_CART = "CHANGE_QUANTITY_FROM_CART",
+	ADD_TO_SHOPPING_CART = 'ADD_TO_SHIPPING_CART',
+	REMOVE_FROM_SHOPPING_CART = 'REMOVE_FROM_SHOPPING_CART',
+	CLEAN_SHOPPING_CART = 'CLEAN_SHOPPING_CART',
+	CHANGE_QUANTITY = 'CHANGE_QUANTITY',
+	CHANGE_QUANTITY_FROM_CART = 'CHANGE_QUANTITY_FROM_CART',
 }
 
 export const addToShoppingCart = (coffee: CoffeeState): ActionProps => {

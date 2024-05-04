@@ -1,8 +1,8 @@
-import { Counter } from "~/components/Counter"
-import { ShoppingCart } from "~/components/ShoppingCart"
-import { useShoppingCart } from "~/context/ShoppingCart"
+import { Counter } from '~/components/Counter'
+import { ShoppingCart } from '~/components/ShoppingCart'
+import { useShoppingCart } from '~/context/ShoppingCart'
 
-import * as Styles from "./styles"
+import * as Styles from './styles'
 
 type BuyProps = {
 	id: number

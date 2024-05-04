@@ -1,4 +1,4 @@
-import type { Order } from "~/interface/order"
+import type { Order } from '~/interface/order'
 
 export function submitOrder(order: Order) {
 	console.log(order)

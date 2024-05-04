@@ -1,12 +1,4 @@
-import styled, { keyframes } from "styled-components"
-import type { LoaderProps } from "."
-
-export const LoaderContainer = styled.div`
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`
+import styled, { keyframes } from 'styled-components'
 
 const motion = keyframes`
     0% {
@@ -23,29 +15,40 @@ const motion = keyframes`
 		}
 `
 
-export const LoaderSpanContainer = styled.span<LoaderProps>`
-	width: ${(props) => props.size}rem;
-	height: ${(props) => props.size * 0.83}rem;
-	margin-top: ${(props) => props.size * 0.625}rem;
+type LoaderStyles = {
+	readonly $size: number
+}
+
+export const LoaderContainer = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`
+
+export const LoaderSpanContainer = styled.span<LoaderStyles>`
+	width: ${(props) => props.$size}rem;
+	height: ${(props) => props.$size * 0.83}rem;
+	margin-top: ${(props) => props.$size * 0.625}rem;
 	display: inline-block;
 	position: relative;
-	background-color: ${(props) => props.theme.colors["base-subtitle"]};
+	background-color: ${(props) => props.theme.colors['base-subtitle']};
 	border-radius: 15% 15% 35% 35%;
 
 	&::after {
-		content: "";
+		content: '';
 		box-sizing: border-box;
 		position: absolute;
-		left: ${(props) => props.size * 0.91}rem;
+		left: ${(props) => props.$size * 0.91}rem;
 		top: 0.5rem;
-		border: 4px solid ${(props) => props.theme.colors["base-text"]};
-		width: ${(props) => props.size * 0.33}rem;
-		height: ${(props) => props.size * 0.41}rem;
+		border: 4px solid ${(props) => props.theme.colors['base-text']};
+		width: ${(props) => props.$size * 0.33}rem;
+		height: ${(props) => props.$size * 0.41}rem;
 		border-radius: 0 4px 4px 0;
 	}
 
 	&::before {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 1px;
 		height: 0.75rem;

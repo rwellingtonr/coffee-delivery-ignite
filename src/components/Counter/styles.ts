@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const CounterContainer = styled.div`
 	display: flex;
@@ -8,18 +8,24 @@ export const CounterContainer = styled.div`
 	padding: 0.5rem;
 	border-radius: 6px;
 	width: 4.5rem;
-	background: ${(props) => props.theme.colors["base-button"]};
+	background: ${(props) => props.theme.colors['base-button']};
 
-	svg {
-		color: ${(props) => props.theme.colors["purple"]};
-		cursor: pointer;
+	.ghost_button {
+		all: unset;
+		display: grid;
+		place-items: center;
 
-		&:hover {
-			color: ${(props) => props.theme.colors["purple-dark"]};
+		svg {
+			color: ${(props) => props.theme.colors['purple']};
+			cursor: pointer;
+
+			&:hover {
+				color: ${(props) => props.theme.colors['purple-dark']};
+			}
 		}
 	}
 
-	span {
-		color: ${(props) => props.theme.colors["base-title"]};
+	.counter {
+		color: ${(props) => props.theme.colors['base-title']};
 	}
 `

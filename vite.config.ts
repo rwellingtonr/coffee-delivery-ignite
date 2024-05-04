@@ -1,17 +1,15 @@
-import { ResolveOptions, defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import { resolve } from "path";
+///<reference types="vitest" />
+///<reference types="vite/client" />
 
-const alias = [
-  {
-    find: "~",
-    replacement: resolve(__dirname, "./src"),
-  },
-];
-// https://vitejs.dev/config/
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+import tsconfigPaths from 'vite-tsconfig-paths'
+
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias,
-  },
-});
+	plugins: [react(), tsconfigPaths()],
+	test: {
+		environment: 'jsdom',
+		globals: true,
+		include: ['./src/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
+	},
+})

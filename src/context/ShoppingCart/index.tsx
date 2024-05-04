@@ -1,22 +1,22 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react"
+import { createContext, useContext, useEffect, useReducer, useState } from 'react'
 import {
 	addToShoppingCart,
 	changeQuantity,
 	cleanShoppingCart,
 	removeFromShoppingCart,
 	changeQuantityFromCart,
-} from "~/redux/actions"
-import { shoppingReducer } from "~/redux/reducer"
-import type { CoffeeState, ShoppingCartContextProps, ShoppingCartProviderProps } from "./types"
+} from '~/redux/actions'
+import { shoppingReducer } from '~/redux/reducer'
+import type { CoffeeState, ShoppingCartContextProps, ShoppingCartProviderProps } from './types'
 
 const ShoppingCartContext = createContext({} as ShoppingCartContextProps)
 
 export const useShoppingCart = () => useContext(ShoppingCartContext)
 
 export function ShippingCartProvider({ children }: ShoppingCartProviderProps) {
-	const [paymentMethod, setPaymentMethod] = useState<string>("")
+	const [paymentMethod, setPaymentMethod] = useState<string>('')
 	const [shoppingCart, dispatch] = useReducer(shoppingReducer, [], () => {
-		const storageStateAsJson = sessionStorage.getItem("@ignite-coffee-v1.0.0")
+		const storageStateAsJson = sessionStorage.getItem('@ignite-coffee-v1.0.0')
 		if (storageStateAsJson) {
 			return JSON.parse(storageStateAsJson)
 		}
@@ -29,7 +29,7 @@ export function ShippingCartProvider({ children }: ShoppingCartProviderProps) {
 	useEffect(() => {
 		if (shoppingCart) {
 			const stringifyCart = JSON.stringify(shoppingCart)
-			sessionStorage.setItem("@ignite-coffee-v1.0.0", stringifyCart)
+			sessionStorage.setItem('@ignite-coffee-v1.0.0', stringifyCart)
 		}
 	}, [shoppingCart])
 
@@ -41,20 +41,20 @@ export function ShippingCartProvider({ children }: ShoppingCartProviderProps) {
 
 	const totalPrice = shippingPrice + priceOfAllItens
 
-	const [intOfPriceItens, fracOfPriceItens] = String(priceOfAllItens).split(".")
-	const centsOfItensPrice = fracOfPriceItens?.padEnd(2, "0")?.slice(0, 2)
-	const itemsPrice = `${intOfPriceItens},${centsOfItensPrice ?? "00"}`
+	const [intOfPriceItens, fracOfPriceItens] = String(priceOfAllItens).split('.')
+	const centsOfItensPrice = fracOfPriceItens?.padEnd(2, '0')?.slice(0, 2)
+	const itemsPrice = `${intOfPriceItens},${centsOfItensPrice ?? '00'}`
 
-	const [intDelivery, floatDelivery] = shippingPrice.toString().split(".")
-	const centsOfDelivery = floatDelivery?.padEnd(2, "0")?.slice(0, 2)
+	const [intDelivery, floatDelivery] = shippingPrice.toString().split('.')
+	const centsOfDelivery = floatDelivery?.padEnd(2, '0')?.slice(0, 2)
 	const deliveryCost = `${intDelivery},${centsOfDelivery}`
 
-	const [intTotal, floatTotal] = totalPrice.toString().split(".")
-	const centsOfTotal = floatTotal?.padEnd(2, "0")?.slice(0, 2)
+	const [intTotal, floatTotal] = totalPrice.toString().split('.')
+	const centsOfTotal = floatTotal?.padEnd(2, '0')?.slice(0, 2)
 	const totalCost = `${intTotal},${centsOfTotal}`
 
 	const handleBuyCoffee = (coffee: CoffeeState) => {
-		console.log("Added", coffee)
+		console.log('Added', coffee)
 
 		dispatch(addToShoppingCart(coffee))
 	}

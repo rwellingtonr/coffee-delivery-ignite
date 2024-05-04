@@ -1,13 +1,11 @@
-import { Layout } from "~/layout"
-import { createBrowserRouter } from "react-router-dom"
-import { ErrorBoundary } from "~/pages/ErrorBoundary"
-import { Home } from "~/pages/Home"
-import { Checkout } from "~/pages/Checkout"
-import { Delivery } from "~/pages/Delivery"
+import { Layout } from '~/layout'
+import { createBrowserRouter } from 'react-router-dom'
+import { ErrorBoundary } from '~/pages/ErrorBoundary'
+import { Home } from '~/pages/Home'
 
 export const router = createBrowserRouter([
 	{
-		path: "/",
+		path: '/',
 		element: <Layout />,
 		errorElement: <ErrorBoundary />,
 		children: [
@@ -17,14 +15,20 @@ export const router = createBrowserRouter([
 				errorElement: <ErrorBoundary />,
 			},
 			{
-				element: <Checkout />,
 				errorElement: <ErrorBoundary />,
-				path: "checkout",
+				path: 'checkout',
+				async lazy() {
+					const { Checkout } = await import('~/pages/Checkout')
+					return { Component: Checkout }
+				},
 			},
 			{
-				element: <Delivery />,
 				errorElement: <ErrorBoundary />,
-				path: "delivery",
+				path: 'delivery',
+				async lazy() {
+					const { Delivery } = await import('~/pages/Delivery')
+					return { Component: Delivery }
+				},
 			},
 		],
 	},

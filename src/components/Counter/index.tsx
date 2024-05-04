@@ -1,7 +1,7 @@
-import { Minus, Plus } from "phosphor-react"
-import { useState } from "react"
-import { useShoppingCart } from "~/context/ShoppingCart"
-import { CounterContainer } from "./styles"
+import { Minus, Plus } from 'phosphor-react'
+import { useState } from 'react'
+import { useShoppingCart } from '~/context/ShoppingCart'
+import { CounterContainer } from './styles'
 
 type CounterProps = {
 	id: number
@@ -29,10 +29,16 @@ export function Counter({ id, onChangeQuantity }: CounterProps) {
 	}
 
 	return (
-		<CounterContainer>
-			<Minus size={16} weight="bold" onClick={decreaseCounter} />
-			<span>{counter}</span>
-			<Plus size={16} weight="bold" onClick={increaseCounter} />
+		<CounterContainer data-testid='counter-container'>
+			<button type="button" data-testid='decrease-button' title='diminuir uma quantidade deste item' className="ghost_button" onClick={decreaseCounter}>
+				<Minus size={16} weight="bold" />
+			</button>
+
+			<span className="counter">{counter}</span>
+
+			<button type="button" data-testid='increase-button' title='aumentar uma quantidade deste item' className="ghost_button" onClick={increaseCounter}>
+				<Plus size={16} weight="bold" />
+			</button>
 		</CounterContainer>
 	)
 }

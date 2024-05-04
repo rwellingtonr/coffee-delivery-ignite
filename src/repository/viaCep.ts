@@ -1,3 +1,5 @@
+import { api } from '~/api'
+
 export type AddressResponse = {
 	city: string
 	cep: string
@@ -20,11 +22,14 @@ type ViaCepResponse = {
 	siafi: string
 }
 
-export async function findAddressByCep(cep: string): Promise<AddressResponse> {
-	const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
-	const data: ViaCepResponse = await response.json()
+interface FindAddressByCepFunction {
+	(cep: string): Promise<AddressResponse>
+}
 
-	const address: AddressResponse = {
+export const findAddressByCep: FindAddressByCepFunction = async (cep) => {
+	const data = await api<ViaCepResponse>(`https://viacep.com.br/ws/${cep}/json/`)
+
+	return {
 		additional: data.complemento,
 		address: data.logradouro,
 		cep,
@@ -32,5 +37,4 @@ export async function findAddressByCep(cep: string): Promise<AddressResponse> {
 		state: data.uf,
 		neighborhood: data.bairro,
 	}
-	return address
 }

@@ -1,15 +1,21 @@
-import styled from "styled-components"
+import styled, { css } from 'styled-components'
+import { media } from '~/styles/breakpoints'
 
 export const CoffeeCardContainer = styled.section`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	width: 100%;
 
-	gap: ${(props) => props.theme.sizes["3xlg"]};
-	padding: 2.5rem;
+	gap: ${({ theme }) => theme.sizes['3xlg']};
+	padding: 1.5rem;
 
-	background-color: ${(props) => props.theme.colors["base-card"]};
+	background-color: ${({ theme }) => theme.colors['base-card']};
 	border-radius: 6px 44px;
+
+	${media.lg`
+		padding: 2.5rem;
+	`}
 `
 export const TotalPriceContainer = styled.dl`
 	display: flex;
@@ -29,19 +35,21 @@ export const TotalPriceContainer = styled.dl`
 
 		gap: 0.5rem;
 
-		.order-information {
-			font-size: ${(props) => props.theme.sizes["sm"]};
-			color: ${(props) => props.theme.colors["base-text"]};
-		}
-		.order-value {
-			color: ${(props) => props.theme.colors["base-text"]};
-		}
+		${({ theme }) => css`
+			.order-information {
+				font-size: ${theme.sizes['sm']};
+				color: ${theme.colors['base-text']};
+			}
+			.order-value {
+				color: ${theme.colors['base-text']};
+			}
 
-		span {
-			font-weight: 700;
-			font-size: ${(props) => props.theme.sizes["xlg"]};
-			color: ${(props) => props.theme.colors["base-subtitle"]};
-		}
+			span {
+				font-weight: 700;
+				font-size: ${theme.sizes['xlg']};
+				color: ${theme.colors['base-subtitle']};
+			}
+		`}
 	}
 `
 export const ConfirmOrderButton = styled.button`
@@ -51,26 +59,28 @@ export const ConfirmOrderButton = styled.button`
 	padding: 0.75rem 0.5rem;
 	gap: 0.25rem;
 	width: 100%;
-
-	background: ${(props) => props.theme.colors["yellow"]};
+	text-transform: uppercase;
 	border-radius: 6px;
 	border: none;
-
-	color: ${(props) => props.theme.colors["white"]};
-	font-size: ${(props) => props.theme.sizes["sm"]};
-	text-transform: uppercase;
-	line-height: ${(props) => props.theme.lineHeight["lg"]};
 
 	cursor: pointer;
 	transition: all 0.1s ease-in;
 
-	&:not(:disabled):hover {
-		background: ${(props) => props.theme.colors["yellow-dark"]};
-	}
+	${({ theme }) => css`
+		background: ${theme.colors['yellow']};
 
-	&:disabled {
-		background: ${(props) => props.theme.colors["yellow-dark"]};
-		opacity: 0.6;
-		cursor: not-allowed;
-	}
+		color: ${theme.colors['white']};
+		font-size: ${theme.sizes['sm']};
+		line-height: ${theme.lineHeight['lg']};
+
+		&:enabled:hover {
+			background: ${theme.colors['yellow-dark']};
+		}
+
+		&:disabled {
+			background: ${theme.colors['yellow-dark']};
+			opacity: 0.6;
+			cursor: not-allowed;
+		}
+	`}
 `
