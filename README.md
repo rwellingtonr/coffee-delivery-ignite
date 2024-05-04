@@ -48,3 +48,7 @@ npm i
 # Rode em modo de desenvolvimento
 npm run dev
 ```
+
+## Melhorias
+
+[ ] Testar fluxo completo

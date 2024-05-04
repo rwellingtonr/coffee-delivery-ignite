@@ -1,16 +1,6 @@
 /// <reference types="cypress" />
 
-const getCoffeeCard = (index: number) => {
-	const increaseButton = `#root > main > div > article:nth-child(${index}) > footer > div.sc-jEACwC.ieNXaF > div > button:nth-child(3)`
-	const counterSpan = `#root > main > div > article:nth-child(${index}) > footer > div.sc-jEACwC.ieNXaF > div > span.counter`
-	const shippingButton = `#root > main > div > article:nth-child(${index}) > footer > div.sc-jEACwC.ieNXaF > button`
-
-	return {
-		increaseButton,
-		counterSpan,
-		shippingButton,
-	}
-}
+import { getCoffeeCard } from '../../__test__/utils/getCoffeCard'
 
 describe('Home Page Flow', () => {
 	beforeEach(() => {
